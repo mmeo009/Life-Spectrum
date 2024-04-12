@@ -159,6 +159,7 @@ MonoBehaviour:
     statFeel: 0
     money: 0
     statSociability: 0
+  OptionsWindow: {fileID: 0}
 --- !u!4 &131041572
 Transform:
   m_ObjectHideFlags: 0

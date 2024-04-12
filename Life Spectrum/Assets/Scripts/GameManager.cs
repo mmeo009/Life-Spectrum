@@ -32,8 +32,9 @@ public class GameManager : MonoBehaviour
     }
     //=======================변수 선언=======================
 
-    public string saveFilePath = null;              // 세이브 파일 경로
-    [SerializeField] private Stats stats = new Stats();     // 게임 저장 정보 클래스
+
+    [Header("세이브 파일 경로")] public string saveFilePath = null;              // 세이브 파일 경로
+    [Header("게임 데이터")] [SerializeField] private Stats stats = new Stats();     // 게임 저장 정보 클래스
 
     private string key = "평오는귀여워히히";            // 암호화 키 (평오가 귀엽긴 하다구 후후)
 
@@ -41,18 +42,7 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        saveFilePath = Application.persistentDataPath + "/LifeSpectrum.json";
-    }
-    public void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.S))
-        {
-            SaveGmaeData(stats);
-        }
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            stats = LoadData();
-        }
+        saveFilePath = Application.persistentDataPath + "/LifeSpectrum.json";           // 세이브 파일 저장 경로
     }
     //======================== 함수 ========================
     public void ManagerAction(Enums.ActonType type, string sceneName = null)
