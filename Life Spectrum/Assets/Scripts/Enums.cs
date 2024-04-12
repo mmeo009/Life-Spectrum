@@ -13,6 +13,15 @@ namespace LifeSpectrum
             fell,
             money
         }
+        public enum ActonType
+        {
+            SceneMove,
+            ExitGame,
+            PauseGame,
+            SaveGame,
+            LoadGame,
+            DefaultAction
+        }
     }
 }
 
