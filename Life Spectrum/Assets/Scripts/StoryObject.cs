@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Define;
+using LifeSpectrum;
 
 [CreateAssetMenu(fileName = "NewStory", menuName = "ScriptableObject/StoryObject")]
 public class StoryObject : ScriptableObject
