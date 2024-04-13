@@ -10,13 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 257ab2af6e69e4b49ae96da574742c27, type: 3}
-  m_Name: NewStory
+  m_Name: StoryCard
   m_EditorClassIdentifier: 
-  storyNum: 1
-  storyName: "\uC6A9\uC9C4\uC774\uC758 \uAC10\uC790 \uD0A4\uC6B0\uAE30"
-  story: "\uAC10\uC790\uC5D0 \uC2F9\uC774\uB098\uC11C \uC2F9\uB09C \uAC10\uC790"
-  additionalStats:
-  - additionalStat: 1
-    amount: 12
-  - additionalStat: 0
-    amount: 300
+  storyNum: 0
+  storyName: 
+  story: 
+  leftWay:
+    wayText: 
+    playerStat: 0
+    statAmount: 0
+    adEvent: 0
+    eventAmount: 0
+  rightWay:
+    wayText: 
+    playerStat: 0
+    statAmount: 0
+    adEvent: 0
+    eventAmount: 0

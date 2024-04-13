@@ -13,6 +13,12 @@ namespace LifeSpectrum
             fell,
             money
         }
+        public enum AdditionalEvent
+        {
+            foodPoison,
+            cold,
+            hurt
+        }
         public enum ActonType
         {
             SceneMove,
