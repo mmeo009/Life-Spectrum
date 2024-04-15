@@ -20,3 +20,5 @@ MonoBehaviour:
     amount: 12
   - additionalStat: 0
     amount: 300
+  - additionalStat: 3
+    amount: 500
