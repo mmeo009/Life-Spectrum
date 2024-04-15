@@ -158,7 +158,12 @@ MonoBehaviour:
     statFullness: 0
     statFeel: 0
     money: 0
-    statSociability: 0
+    isFoodPoison: 0
+    foodPoison: 0
+    hasCold: 0
+    cold: 0
+    getHurt: 0
+    hurt: 0
   OptionsWindow: {fileID: 0}
 --- !u!4 &131041572
 Transform:
