@@ -34,14 +34,18 @@ public class GameManager : MonoBehaviour
 
 
     [Header("세이브 파일 경로")] public string saveFilePath = null;              // 세이브 파일 경로
-    [Header("게임 데이터")] [SerializeField] private Stats stats = new Stats();     // 게임 저장 정보 클래스
+    [Header("게임 데이터")] public Stats stats = new Stats();     // 게임 저장 정보 클래스
 
     private string key = "평오는귀여워히히";            // 암호화 키 (평오가 귀엽긴 하다구 후후)
 
     public GameObject OptionsWindow;                // 일시정지 시 나오는 창 오브젝트
 
+    public Dictionary<int, StoryObject> storys = new Dictionary<int, StoryObject>();
+
+
     public void Start()
     {
+        LoadStory();
         saveFilePath = Application.persistentDataPath + "/LifeSpectrum.json";           // 세이브 파일 저장 경로
     }
     //======================== 함수 ========================
@@ -247,5 +251,15 @@ public class GameManager : MonoBehaviour
         byte[] keyBytes = Encoding.UTF8.GetBytes(key); // 키를 바이트 배열로 변환
         Array.Resize(ref keyBytes, keySize / 8); // 원하는 키 크기에 맞게 배열 크기 조정
         return keyBytes; // 조정된 바이트를 반환
+    }
+
+    private void LoadStory()
+    {
+        var storyResources = Resources.LoadAll<StoryObject>("Scriptable");
+
+        foreach(var story in storyResources)
+        {
+            storys.Add(story.storyNum, story);
+        }
     }
 }

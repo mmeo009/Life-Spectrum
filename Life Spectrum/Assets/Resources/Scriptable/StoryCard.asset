@@ -14,16 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyNum: 0
   storyName: 
+  stangeDegree: 0
   story: 
   leftWay:
     wayText: 
-    playerStat: 0
-    statAmount: 0
-    adEvent: 0
-    eventAmount: 0
+    statDatas:
+    - playerStat: 0
+      statAmount: 0
+    eventDatas: []
   rightWay:
     wayText: 
-    playerStat: 0
-    statAmount: 0
-    adEvent: 0
-    eventAmount: 0
+    statDatas: []
+    eventDatas: []

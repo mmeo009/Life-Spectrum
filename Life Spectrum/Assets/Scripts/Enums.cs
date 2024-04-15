@@ -28,6 +28,14 @@ namespace LifeSpectrum
             LoadGame,
             DefaultAction
         }
+        public enum StoryStangeDegree
+        {
+            Ordinary,
+            Strange,
+            Terrible,
+            Morbid,
+            Disaster
+        }
     }
 }
 
