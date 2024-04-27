@@ -12,17 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257ab2af6e69e4b49ae96da574742c27, type: 3}
   m_Name: StoryCard
   m_EditorClassIdentifier: 
-  storyNum: 0
-  storyName: 
-  stangeDegree: 0
-  story: 
-  leftWay:
-    wayText: 
-    statDatas:
-    - playerStat: 0
-      statAmount: 0
-    eventDatas: []
-  rightWay:
-    wayText: 
-    statDatas: []
-    eventDatas: []
+  options:
+  - OptionText: 
+    isPositive: 0
+    Stat: 0
+    Amount: 0
+    Method: 0
+  - OptionText: 
+    isPositive: 0
+    Stat: 0
+    Amount: 0
+    Method: 0

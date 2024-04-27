@@ -4,21 +4,20 @@ using UnityEngine;
 
 namespace LifeSpectrum
 {
+    /// <summary>
+    /// statIntelligence : 지능 스텟
+    /// statStrength : 체력 스텟
+    /// statPersonality : 성격 스텟
+    /// statMoney : 돈
+    /// </summary>
     [System.Serializable]
     public class Stats
     {
-        //======================기본 스탯=====================
-        public int statLife;                    // 생명력 스탯
-        public int statFullness;                // 포만감 스탯
-        public int statFeel;                    // 행복도 스탯
-        public int money;                       // 돈
-        //======================추가 스탯=====================
-        public bool isFoodPoison;               // 식중독에 걸렸는가
-        public int foodPoison;                  // 식중독 지속 턴
-        public bool hasCold;                    // 감기에 걸렸는가
-        public int cold;                        // 감기 지속 턴
-        public bool getHurt;                    // 다쳤는가
-        public int hurt;                        // 회복까지 걸리는 시간
+        public int statIntelligence;
+        public int statStrength;
+        public int statPersonality;
+        public int statMoney;
     }
+
 }
 

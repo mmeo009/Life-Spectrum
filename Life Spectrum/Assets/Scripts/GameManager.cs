@@ -14,130 +14,38 @@ using LifeSpectrum;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set; }    //싱글톤화
+    public static GameManager Instance { get; private set; }
 
     private void Awake()
     {
-        if (Instance)       // 게임 메니저가 존재 할 경우
+        if (Instance)
         {
-            Destroy(gameObject);        // 나중에 생긴 나는 지워
-            return;         // 함수 종료
+            Destroy(gameObject);
+            return;
         }
-        else                // 게임 메니저가 존재하지 않을 경우
+        else
         {
-            transform.parent = null;        // 트렌스폼 페런츠 없애(내 부모 오브젝트 없애)
-            Instance = this;                // 나는 Instance가 된다
-            DontDestroyOnLoad(gameObject);  // 내가 들어 있는 오브젝트가 다음 씬으로 가도 파괴 되지 않음
+            transform.parent = null;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
-    //=======================변수 선언=======================
 
 
-    [Header("세이브 파일 경로")] public string saveFilePath = null;              // 세이브 파일 경로
-    [Header("게임 데이터")] public Stats stats = new Stats();     // 게임 저장 정보 클래스
+    [Header("세이브 파일 경로")] public string saveFilePath = null;
+    [Header("게임 데이터")] public Stats stats = new Stats();
 
-    private string key = "평오는귀여워히히";            // 암호화 키 (평오가 귀엽긴 하다구 후후)
+    private string key = "평오는귀여워히히";
 
-    public GameObject OptionsWindow;                // 일시정지 시 나오는 창 오브젝트
+    public GameObject OptionsWindow;
 
     public Dictionary<int, StoryObject> storys = new Dictionary<int, StoryObject>();
 
 
     public void Start()
     {
-        LoadStory();
-        saveFilePath = Application.persistentDataPath + "/LifeSpectrum.json";           // 세이브 파일 저장 경로
+        saveFilePath = Application.persistentDataPath + "/LifeSpectrum.json";
     }
-    //======================== 함수 ========================
-    public void ManagerAction(Enums.ActonType type, string sceneName = null)
-    {
-
-        if (type == Enums.ActonType.SceneMove)          // 만약에 엑션 타입이 씬 이동일 경우
-        {
-            if (sceneName != null)              // 만약에 씬 이름이 없을 경우
-            {
-                SceneManager.LoadScene("LoadingScene");     // 로딩씬으로 이동
-                StartCoroutine(LoadingSceneAndFillLoadingBarCoroutine(sceneName)); // 이후 비동기로 다음씬 로드
-            }
-            else
-            {
-                Debug.LogError("씬 이름이 기입되지 않았습니다.");        // 씬이름이 없다고 오류 출력
-                SceneManager.LoadScene("StartScene");                  // 시작씬으로 이동
-            }
-
-        }
-        else if (type == Enums.ActonType.ExitGame)
-        {
-            Application.Quit();                 // 빌드된 게임에서만 동작
-        }
-        else if (type == Enums.ActonType.PauseGame)
-        {
-            if (Time.timeScale == 1)            // 시간이 정지하지 않았다면
-            {
-                Time.timeScale = 0;
-                OptionsWindow.SetActive(true);
-            }
-            else                               // 시간이 정지 해 있다면
-            {
-                Time.timeScale = 1;
-                OptionsWindow.SetActive(false);
-            }
-        }
-        else if (type == Enums.ActonType.SaveGame)      // 만약에 엑션 타입이 게임 저장일 경우
-        {
-            SaveGmaeData(stats);                // 게임 저장
-        }
-        else if (type == Enums.ActonType.LoadGame)      // 만약에 엑션 타입이 게임 로드일 경우
-        {
-            stats = LoadData();                 // 저장된 데이터 로드
-        }
-    }
-
-    // 다음 씬을 비동기로 로드해 오는 코루틴
-    private IEnumerator LoadingSceneAndFillLoadingBarCoroutine(string sceneName)
-    {
-        Image loadingBar;           // 로딩바 이미지
-        if (SceneManager.GetActiveScene().name != "LoadingScene")           // 만약에 이 씬이 로딩 씬이 아닐 경우
-        {
-            AsyncOperation loadLoadingScene = SceneManager.LoadSceneAsync("LoadingScene");      // 로딩씬을 로딩해옴
-            while (!loadLoadingScene.isDone)        // 씬 로딩이 완료 되기 전까지 돌아
-            {
-                yield return null; // Update() 끝나고 아래로 내려가
-            }
-        }
-
-        loadingBar = GameObject.Find("LoadingBar").GetComponent<Image>();       // 로딩바 이미지를 찾아봄
-        if (loadingBar == null)             // 만약에 로딩바를 찾지 못했을 경우
-        {
-            Debug.LogError("로딩바를 찾을 수 없습니다.");      // 로딩바를 찾지 못했음을 출력
-            yield break;                // 코루틴 탈출~~~!
-        }
-
-        AsyncOperation op = SceneManager.LoadSceneAsync(sceneName);         // 비동기 작업 생성(sceneName)로드 해오기
-        op.allowSceneActivation = false;                // 로드가 되자마자 씬으로 전환 x
-        float timer = 0f;           // 타이머 생성
-        while (!op.isDone)          // 비동기 작업이 끝날때 까지 돌아
-        {
-            yield return null;      // Update() 끝나고 아래로 내려가
-
-            if (op.progress <= 0.9f)        // 진행도가 0.9f보다 작거나 같을경우
-            {
-                loadingBar.fillAmount = op.progress;        // 로딩바를 진행도만큼 채워
-            }
-            else                            // 진행도가 0보다 클경우
-            {
-                timer += Time.unscaledDeltaTime;        // 타이머 늘려
-                loadingBar.fillAmount = Mathf.Lerp(0.9f, 1f, timer);            // 0,1사이로 타이머 만큼 늘려
-                if (loadingBar.fillAmount >= 1f || op.isDone)                   // 만약 로딩바가 다 찼거나 씬 로딩이 끝났을 겨우
-                {
-                    op.allowSceneActivation = true;                 // 씬이동 활성화
-                    yield break;                    // 코루틴 탈출~~~~~
-                }
-            }
-        }
-    }
-
-
 
     // 게임 데이터 저장
     private void SaveGmaeData(Stats data)
@@ -253,13 +161,4 @@ public class GameManager : MonoBehaviour
         return keyBytes; // 조정된 바이트를 반환
     }
 
-    private void LoadStory()
-    {
-        var storyResources = Resources.LoadAll<StoryObject>("Scriptable");
-
-        foreach(var story in storyResources)
-        {
-            storys.Add(story.storyNum, story);
-        }
-    }
 }

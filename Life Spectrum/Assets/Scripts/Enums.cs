@@ -8,25 +8,18 @@ namespace LifeSpectrum
     {
         public enum PlayerStats
         {
-            life,
-            fullness,
-            fell,
-            money
+            Intelligence,
+            Strength,
+            Personality,
+            Money
         }
-        public enum AdditionalEvent
+        public enum ActonMethod
         {
-            foodPoison,
-            cold,
-            hurt
-        }
-        public enum ActonType
-        {
-            SceneMove,
-            ExitGame,
-            PauseGame,
-            SaveGame,
-            LoadGame,
-            DefaultAction
+            Add,
+            Subtract,
+            Multiply,
+            Divide,
+            Set
         }
         public enum StoryStangeDegree
         {
