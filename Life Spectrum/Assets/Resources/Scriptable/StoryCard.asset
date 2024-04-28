@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257ab2af6e69e4b49ae96da574742c27, type: 3}
   m_Name: StoryCard
   m_EditorClassIdentifier: 
+  StoryText: 
+  statMins: []
+  hasPreviousStory: 1
+  nextStory: {fileID: 0}
   options:
   - OptionText: 
     isPositive: 0
-    Stat: 0
-    Amount: 0
-    Method: 0
+    nextStory: {fileID: 0}
+    age: 0
+    stats: []
   - OptionText: 
     isPositive: 0
-    Stat: 0
-    Amount: 0
-    Method: 0
+    nextStory: {fileID: 0}
+    age: 4
+    stats: []
