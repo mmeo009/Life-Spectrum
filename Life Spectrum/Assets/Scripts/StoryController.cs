@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using DG.Tweening;
 
-namespace LifeSpectrum
+namespace LIFESPECTRUM
 {
     public class StoryController : MonoBehaviour
     {

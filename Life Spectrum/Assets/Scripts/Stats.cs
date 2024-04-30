@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LifeSpectrum
+namespace LIFESPECTRUM
 {
     /// <summary>
     /// statIntelligence : Áö´É ½ºÅÝ
@@ -17,6 +17,10 @@ namespace LifeSpectrum
         public int statStrength;
         public int statPersonality;
         public int statMoney;
+        public int maxIntelligence;
+        public int maxStrength;
+        public int maxPersonality;
+        public int age;
     }
 
 }

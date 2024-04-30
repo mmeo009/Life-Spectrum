@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using Newtonsoft.Json;
-using LifeSpectrum;
+using LIFESPECTRUM;
 
 
 public class GameManager : MonoBehaviour

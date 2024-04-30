@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LifeSpectrum
+namespace LIFESPECTRUM
 {
     [CreateAssetMenu(fileName = "StoryCard", menuName = "ScriptableObject/StoryObject")]
     public class StoryObject : ScriptableObject
@@ -26,6 +26,7 @@ namespace LifeSpectrum
     public class Stat
     {
         [Header("¹Ù²Ü ½ºÅÝ")] public Enums.PlayerStats StatType;
+        [Header("¹Ù²Ü ½ºÅÝÀÌ ÃÖ´ë ÀÎÁö")] public bool isMaxAmount;
         [Header("¹Ù²Ü ¾ç")] public int Amount;
         [Header("¹Ù²Ü ¹æ¹ý")] public Enums.ActonMethod Method;
     }
