@@ -22,13 +22,14 @@ namespace LIFESPECTRUM
         [Header("선택 이후 스토리")] public StoryObject nextStory;
         [Header("등장하는 나이")] public Enums.Age age;
         [Header("옵션에서 바꿀 스텟")] public List<Stat> stats = new List<Stat>();
+        [Header("옵션에서 등장하는 디버프")] public List<Debuff> debuffs = new List<Debuff>();
     }
     [System.Serializable]
     public class Stat
     {
         [Header("바꿀 스텟")] public Enums.PlayerStats StatType;
         [Header("바꿀 스텟이 최대 인지")] public bool isMaxAmount;
-        [Header("바꿀 양")] public int Amount;
+        [Header("바꿀 양")] public int amount;
         [Header("바꿀 방법")] public Enums.ActonMethod Method;
     }
     [System.Serializable]
@@ -36,6 +37,14 @@ namespace LIFESPECTRUM
     {
         [Header("조건 스텟")] public Enums.PlayerStats StatType;
         [Header("최소 양")] public int Amount;
+    }
+    [System.Serializable]
+    public class Debuff
+    {
+        [Header("디버프 이름")] public string debuffName;
+        [Header("디버프 타입")] public Enums.DebuffType debuffType;
+        [Header("디버프 지속 시간")] public int amountOfTime;
+        [Header("시간 당 바꿀 스텟")] public List<Stat> stat = new List<Stat>();
     }
 }
 

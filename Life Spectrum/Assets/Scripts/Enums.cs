@@ -59,6 +59,12 @@ namespace LIFESPECTRUM
             Morbid,
             Disaster
         }
+
+        public enum DebuffType
+        {
+            PerSec,
+            PerYear
+        }
     }
 }
 
