@@ -38,12 +38,273 @@ namespace LIFESPECTRUM
         private GameManager gameManager;
         public List<StoryObject> storyObjects;
         public List<StoryObject> pickedStorys;
+        public List<Debuff> myDebuffs;
 
         private void Start()
         {
             gameManager = GameManager.Instance;
         }
-        List<StoryObject> PickStoryObjects(int amount)
+        private void ChangePlayerStat(Stat stat)
+        {
+            if (stat.isMaxAmount == true)
+            {
+                switch (stat.StatType)
+                {
+                    case Enums.PlayerStats.Intelligence:
+                        if (stat.Method == Enums.ActonMethod.Add)
+                        {
+                            gameManager.stats.maxIntelligence += stat.amount;
+                        }
+                        else if (stat.Method == Enums.ActonMethod.Subtract)
+                        {
+                            gameManager.stats.maxIntelligence -= stat.amount;
+
+                            if (gameManager.stats.maxIntelligence < 1)
+                            {
+                                gameManager.stats.maxIntelligence = 1;
+                            }
+                        }
+                        else if (stat.Method == Enums.ActonMethod.Set)
+                        {
+                            gameManager.stats.maxIntelligence = stat.amount;
+                        }
+                        else
+                        {
+                            Debug.LogError("존재 하지 않아!");
+                        }
+                        break;
+                    case Enums.PlayerStats.Strength:
+                        if (stat.Method == Enums.ActonMethod.Add)
+                        {
+                            gameManager.stats.maxStrength += stat.amount;
+                        }
+                        else if (stat.Method == Enums.ActonMethod.Subtract)
+                        {
+                            gameManager.stats.maxStrength -= stat.amount;
+
+                            if (gameManager.stats.maxStrength < 1)
+                            {
+                                gameManager.stats.maxStrength = 1;
+                            }
+                        }
+                        else if (stat.Method == Enums.ActonMethod.Set)
+                        {
+                            gameManager.stats.maxStrength = stat.amount;
+                        }
+                        else
+                        {
+                            Debug.LogError("존재 하지 않아!");
+                        }
+                        break;
+                    case Enums.PlayerStats.Personality:
+                        if (stat.Method == Enums.ActonMethod.Add)
+                        {
+                            gameManager.stats.maxPersonality += stat.amount;
+                        }
+                        else if (stat.Method == Enums.ActonMethod.Subtract)
+                        {
+                            gameManager.stats.maxPersonality -= stat.amount;
+
+                            if (gameManager.stats.maxPersonality < 1)
+                            {
+                                gameManager.stats.maxPersonality = 1;
+                            }
+                        }
+                        else if (stat.Method == Enums.ActonMethod.Set)
+                        {
+                            gameManager.stats.maxIntelligence = stat.amount;
+                        }
+                        else
+                        {
+                            Debug.LogError("존재 하지 않아!");
+                        }
+                        break;
+                    case Enums.PlayerStats.Money:
+                        Debug.LogError("존재 하지 않아!");
+                        break;
+                    case Enums.PlayerStats.Age:
+                        Debug.LogError("존재 하지 않아!");
+                        break;
+                    default:
+                        Debug.LogError("존재 하지 않아!");
+                        break;
+                }
+            }
+            else
+            {
+                switch (stat.StatType)
+                {
+                    case Enums.PlayerStats.Intelligence:
+                        if (stat.Method == Enums.ActonMethod.Add)
+                        {
+                            gameManager.stats.statIntelligence += stat.amount;
+                        }
+                        else if (stat.Method == Enums.ActonMethod.Subtract)
+                        {
+                            gameManager.stats.statIntelligence -= stat.amount;
+
+                            if (gameManager.stats.statIntelligence <= 0)
+                            {
+                                // TODO : PlayerDie(Enums.PlayerStats.Intelligence);
+                            }
+                        }
+                        else if (stat.Method == Enums.ActonMethod.Set)
+                        {
+                            gameManager.stats.statIntelligence = stat.amount;
+
+                            if (gameManager.stats.statIntelligence <= 0)
+                            {
+                                // TODO : PlayerDie(Enums.PlayerStats.Intelligence);
+                            }
+                        }
+                        else
+                        {
+                            Debug.LogError("존재 하지 않아!");
+                        }
+                        break;
+                    case Enums.PlayerStats.Strength:
+                        if (stat.Method == Enums.ActonMethod.Add)
+                        {
+                            gameManager.stats.statStrength += stat.amount;
+                        }
+                        else if (stat.Method == Enums.ActonMethod.Subtract)
+                        {
+                            gameManager.stats.statStrength -= stat.amount;
+
+                            if (gameManager.stats.statStrength <= 0)
+                            {
+                                // TODO : PlayerDie(Enums.PlayerStats.statStrength);
+                            }
+                        }
+                        else if (stat.Method == Enums.ActonMethod.Set)
+                        {
+                            gameManager.stats.statStrength = stat.amount;
+
+                            if (gameManager.stats.statStrength <= 0)
+                            {
+                                // TODO : PlayerDie(Enums.PlayerStats.statStrength);
+                            }
+                        }
+                        else
+                        {
+                            Debug.LogError("존재 하지 않아!");
+                        }
+                        break;
+                    case Enums.PlayerStats.Personality:
+                        if (stat.Method == Enums.ActonMethod.Add)
+                        {
+                            gameManager.stats.statPersonality += stat.amount;
+                        }
+                        else if (stat.Method == Enums.ActonMethod.Subtract)
+                        {
+                            gameManager.stats.statPersonality -= stat.amount;
+
+                            if (gameManager.stats.statPersonality <= 0)
+                            {
+                                // TODO : PlayerDie(Enums.PlayerStats.statPersonality);
+                            }
+                        }
+                        else if (stat.Method == Enums.ActonMethod.Set)
+                        {
+                            gameManager.stats.statPersonality = stat.amount;
+
+                            if (gameManager.stats.statPersonality <= 0)
+                            {
+                                // TODO : PlayerDie(Enums.PlayerStats.statPersonality);
+                            }
+                        }
+                        else
+                        {
+                            Debug.LogError("존재 하지 않아!");
+                        }
+                        break;
+                    case Enums.PlayerStats.Money:
+                        if (stat.Method == Enums.ActonMethod.Add)
+                        {
+                            gameManager.stats.statMoney += stat.amount;
+                        }
+                        else if (stat.Method == Enums.ActonMethod.Subtract)
+                        {
+                            gameManager.stats.statMoney -= stat.amount;
+
+                            if (gameManager.stats.statMoney <= 0)
+                            {
+                                // TODO : PlayerDie(Enums.PlayerStats.statMoney);
+                            }
+                        }
+                        else if (stat.Method == Enums.ActonMethod.Set)
+                        {
+                            gameManager.stats.statMoney = stat.amount;
+
+                            if (gameManager.stats.statMoney <= 0)
+                            {
+                                // TODO : PlayerDie(Enums.PlayerStats.statMoney);
+                            }
+                        }
+                        else
+                        {
+                            Debug.LogError("존재 하지 않아!");
+                        }
+                        break;
+                    case Enums.PlayerStats.Age:
+                        Debug.LogError("존재 하지 않아!");
+                        break;
+                    default:
+                        Debug.LogError("존재 하지 않아!");
+                        break;
+                }
+            }
+        }
+        private void AddMyDebuff(Debuff debuff)
+        {
+            if (myDebuffs == null) myDebuffs = new List<Debuff>();
+
+            var df = myDebuffs.Find(myDebuff => myDebuff.debuffName == debuff.debuffName);
+
+            if(df != null)
+            {
+                if(df.debuffType == debuff.debuffType)
+                {
+                    df.amountOfTime += debuff.amountOfTime;
+                }
+                else
+                {
+                    myDebuffs.Add(debuff);
+                }
+            }
+            else
+            {
+                myDebuffs.Add(debuff);
+            }
+        }
+        private void DebuffPerYear()
+        {
+            List<Debuff> debuffsPerYear = new List<Debuff>();
+
+            foreach(Debuff debuff in myDebuffs)
+            {
+                if (debuff.debuffType == Enums.DebuffType.PerYear) debuffsPerYear.Add(debuff);
+            }
+            
+            if(debuffsPerYear.Count > 0)
+            {
+                foreach(Debuff debuff in debuffsPerYear)
+                {
+                    for (int i = 0; i < debuff.stat.Count; i++)
+                    {
+                        ChangePlayerStat(debuff.stat[i]);
+                    }
+
+                    debuff.amountOfTime -= 1;
+
+                    if(debuff.amountOfTime <= 0)
+                    {
+                        myDebuffs.Remove(debuff);
+                    }
+                }
+            }
+        }
+        private List<StoryObject> PickStoryObjects(int amount)
         {
             List<StoryObject> storyTemp = new List<StoryObject>();
 
@@ -85,7 +346,7 @@ namespace LIFESPECTRUM
             return ShuffleStory(storyTemp);
         }
 
-        public List<StoryObject> ShuffleStory(List<StoryObject> list, StoryObject addStory = null)
+        private List<StoryObject> ShuffleStory(List<StoryObject> list, StoryObject addStory = null)
         {
             List<StoryObject> shuffled = new List<StoryObject>();
 
@@ -110,8 +371,7 @@ namespace LIFESPECTRUM
 
             return shuffled;
         }
-
-        bool StatMinChack(Enums.PlayerStats stat, int amount)
+        private bool StatMinChack(Enums.PlayerStats stat, int amount)
         {
             switch(stat)
             {

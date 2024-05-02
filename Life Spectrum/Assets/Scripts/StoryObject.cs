@@ -8,11 +8,12 @@ namespace LIFESPECTRUM
     public class StoryObject : ScriptableObject
     {
         [Header("이야기 텍스트")] [TextArea(10, 10)] public string StoryText;
+        [Header("이미지 스프라이트")] public Material image;
         [Header("스토리 등장 조건 스텟")] public List<StatMin> statMins = new List<StatMin>();
         [Header("이전 스토리가 존재하는지")] public bool hasPreviousStory = false;
         [Header("이후 스토리")] public StoryObject nextStory;
         [Header("선택지들(ALL선택지 최소 2개)")] public List<Option> options = new List<Option>();
-        [Header("이미지 스프라이트")] public Material image;
+
     }
     [System.Serializable]
     public class Option
@@ -36,6 +37,7 @@ namespace LIFESPECTRUM
     public class StatMin
     {
         [Header("조건 스텟")] public Enums.PlayerStats StatType;
+        [Header("등장하는 나이")] public Enums.Age age;
         [Header("최소 양")] public int Amount;
     }
     [System.Serializable]
