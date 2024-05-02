@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: StoryCard
   m_EditorClassIdentifier: 
   StoryText: 
+  image: {fileID: 0}
   statMins: []
   hasPreviousStory: 1
   nextStory: {fileID: 0}
@@ -22,8 +23,10 @@ MonoBehaviour:
     nextStory: {fileID: 0}
     age: 0
     stats: []
+    debuffs: []
   - OptionText: 
     isPositive: 0
     nextStory: {fileID: 0}
     age: 4
     stats: []
+    debuffs: []
