@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 257ab2af6e69e4b49ae96da574742c27, type: 3}
-  m_Name: StoryCard
+  m_Name: SC_Test1
   m_EditorClassIdentifier: 
   StoryText: 
   statMins: []
