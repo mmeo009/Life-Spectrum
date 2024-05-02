@@ -12,6 +12,7 @@ namespace LIFESPECTRUM
         [Header("이전 스토리가 존재하는지")] public bool hasPreviousStory = false;
         [Header("이후 스토리")] public StoryObject nextStory;
         [Header("선택지들(ALL선택지 최소 2개)")] public List<Option> options = new List<Option>();
+        [Header("이미지 스프라이트")] public Material image;
     }
     [System.Serializable]
     public class Option
