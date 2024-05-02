@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SC_Test2
   m_EditorClassIdentifier: 
   StoryText: 
+  image: {fileID: 0}
   statMins: []
   hasPreviousStory: 0
   nextStory: {fileID: 11400000, guid: 6f12a3ac1fe787440b79200d1c346da5, type: 2}
@@ -23,19 +24,29 @@ MonoBehaviour:
     age: 0
     stats:
     - StatType: 1
-      Amount: 12
+      isMaxAmount: 0
+      amount: 0
       Method: 0
     - StatType: 0
-      Amount: 13
+      isMaxAmount: 0
+      amount: 0
       Method: 1
+    debuffs:
+    - debuffName: 
+      debuffType: 0
+      amountOfTime: 0
+      stat: []
   - OptionText: "\uC544 \uD5C8\uB9AC\uC544\uD30C"
     isPositive: 1
     nextStory: {fileID: 0}
     age: 4
     stats:
     - StatType: 1
-      Amount: 12
+      isMaxAmount: 0
+      amount: 0
       Method: 0
     - StatType: 0
-      Amount: 13
+      isMaxAmount: 0
+      amount: 0
       Method: 1
+    debuffs: []
