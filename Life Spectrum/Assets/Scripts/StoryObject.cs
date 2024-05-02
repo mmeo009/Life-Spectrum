@@ -7,10 +7,12 @@ namespace LIFESPECTRUM
     [CreateAssetMenu(fileName = "StoryCard", menuName = "ScriptableObject/StoryObject")]
     public class StoryObject : ScriptableObject
     {
-        [Header("이야기 텍스트")] [TextArea(10, 10)] public string StoryText;
+        [Header("이름 텍스트")] [TextArea(10, 3)] public string titleText;
+        [Header("이야기 텍스트")] [TextArea(10, 10)] public string storyText;
         [Header("이미지 스프라이트")] public Material image;
         [Header("스토리 등장 조건 스텟")] public List<StatMin> statMins = new List<StatMin>();
         [Header("이전 스토리가 존재하는지")] public bool hasPreviousStory = false;
+        [Header("아무 선택지도 없는 스토리")] public bool hasntAnyOptions = false;
         [Header("이후 스토리")] public StoryObject nextStory;
         [Header("선택지들(ALL선택지 최소 2개)")] public List<Option> options = new List<Option>();
 
@@ -18,7 +20,8 @@ namespace LIFESPECTRUM
     [System.Serializable]
     public class Option
     {
-        [Header("옵션 텍스트")][TextArea(10, 10)] public string OptionText;
+        [Header("옵션 텍스트")][TextArea(10, 10)] public string optionText;
+        [Header("옵션 세부 텍스트")] [TextArea(10, 10)] public string optionDetailText;
         [Header("좋은(긍정적인) 질문인지")] public bool isPositive;
         [Header("선택 이후 스토리")] public StoryObject nextStory;
         [Header("등장하는 나이")] public Enums.Age age;
