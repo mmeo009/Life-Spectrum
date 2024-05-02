@@ -12,9 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257ab2af6e69e4b49ae96da574742c27, type: 3}
   m_Name: SC_1003
   m_EditorClassIdentifier: 
-  StoryText: 
-  image: {fileID: 0}
-  statMins: []
-  hasPreviousStory: 0
-  nextStory: {fileID: 0}
-  options: []
+  StoryText: "\uC800 \uC55E\uC5D0 \uC7A5\uB09C\uAC10\uC774 \uC788\uB2E4.\n\uC7A5\uB09C\uAC10\uC744
+    \uAC00\uC9C0\uB7EC \uAC00\uC57C\uC9C0!"
+  image: {fileID: 2100000, guid: c1e325d9332db8d4b942a4b1fe96c8b7, type: 2}
+  statMins:
+  - StatType: 4
+    age: 1
+    Amount: 0
+  hasPreviousStory: 1
+  nextStory: {fileID: 11400000, guid: 91235725189fcfb4f84e1ba027590f81, type: 2}
+  options:
+  - OptionText: "\uAC78\uC5B4\uAC04\uB2E4"
+    isPositive: 0
+    nextStory: {fileID: 0}
+    age: 0
+    stats:
+    - StatType: 1
+      isMaxAmount: 1
+      amount: 1
+      Method: 0
+    - StatType: 0
+      isMaxAmount: 1
+      amount: 1
+      Method: 1
+    - StatType: 2
+      isMaxAmount: 1
+      amount: 1
+      Method: 1
+    debuffs: []
+  - OptionText: "\uAE30\uC5B4\uAC04\uB2E4"
+    isPositive: 1
+    nextStory: {fileID: 0}
+    age: 0
+    stats:
+    - StatType: 0
+      isMaxAmount: 0
+      amount: 1
+      Method: 0
+    debuffs: []
