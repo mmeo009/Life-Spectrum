@@ -20,7 +20,8 @@ namespace LIFESPECTRUM
         public int maxIntelligence;
         public int maxStrength;
         public int maxPersonality;
-        public int age;
+        public int maxMoney;
+        public float age;
     }
 
 }

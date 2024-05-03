@@ -31,20 +31,46 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private string key = "평오는귀여워히히";
+
+    private Dictionary<string, GameObject> statUI;
 
     [Header("세이브 파일 경로")] public string saveFilePath = null;
     [Header("게임 데이터")] public Stats stats = new Stats();
 
-    private string key = "평오는귀여워히히";
-
     public GameObject OptionsWindow;
-
     public Dictionary<int, StoryObject> storys = new Dictionary<int, StoryObject>();
 
 
     public void Start()
     {
         saveFilePath = Application.persistentDataPath + "/LifeSpectrum.json";
+        ChangeStatUI();
+    }
+
+    public void StartGame()
+    {
+
+    }
+
+    public void ChangeStatUI()
+    {
+        if(statUI == null)
+        {
+           statUI = new Dictionary<string, GameObject>();
+           var statGo = GameObject.FindGameObjectsWithTag("StatImage");
+
+           foreach(GameObject st in statGo)
+            {
+                statUI.Add(st.name.Substring(5), st);
+                Debug.Log(st.name.Substring(5));
+            }
+        }
+
+        statUI["Intelligence"].GetComponent<Image>().fillAmount = stats.maxIntelligence / stats.statIntelligence;
+        statUI["Personality"].GetComponent<Image>().fillAmount = stats.maxPersonality / stats.statPersonality;
+        statUI["Strength"].GetComponent<Image>().fillAmount = stats.maxStrength / stats.statStrength;
+        statUI["Money"].GetComponent<Image>().fillAmount = stats.maxMoney / stats.statMoney;
     }
 
     // 게임 데이터 저장
