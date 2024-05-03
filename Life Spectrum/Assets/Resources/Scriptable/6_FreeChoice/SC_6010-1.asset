@@ -18,9 +18,9 @@ MonoBehaviour:
     \uAC78\uAE4C?"
   image: {fileID: 0}
   statMins: []
-  hasPreviousStory: 0
+  hasPreviousStory: 1
   hasntAnyOptions: 0
-  timeDoesntPass: 0
+  timeDoesntPass: 1
   nextStory: {fileID: 0}
   options:
   - optionText: "\uD37C\uC5B5!"
@@ -32,11 +32,11 @@ MonoBehaviour:
     stats:
     - StatType: 2
       isMaxAmount: 0
-      amount: 2
+      amount: 20
       Method: 1
     - StatType: 1
       isMaxAmount: 0
-      amount: 2
+      amount: 20
       Method: 0
     debuffs: []
   - optionText: "\uC288\uC6B1~"
@@ -48,6 +48,6 @@ MonoBehaviour:
     stats:
     - StatType: 2
       isMaxAmount: 0
-      amount: 2
+      amount: 20
       Method: 0
     debuffs: []

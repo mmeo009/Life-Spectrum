@@ -27,7 +27,7 @@ MonoBehaviour:
   - optionText: "\uBB38\uC744 \uC5F0\uB2E4."
     optionDetailText: "\uB2F9\uC5F0\uD788 \uCE5C\uAD6C\uC600\uC2B5\uB2C8\uB2E4."
     isPositive: 0
-    nextStory: {fileID: 11400000, guid: 96a6bd64ae6d9184b95bc80a110d2ec7, type: 2}
+    nextStory: {fileID: 0}
     age: 0
     stats:
     - StatType: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
     optionDetailText: "\uCE5C\uAD6C\uAC00 \uAE30\uB2E4\uB9AC\uB2E4 \uC9C0\uCCD0\uC11C
       \uB3CC\uC544\uAC14\uC2B5\uB2C8\uB2E4."
     isPositive: 1
-    nextStory: {fileID: 11400000, guid: 96a6bd64ae6d9184b95bc80a110d2ec7, type: 2}
+    nextStory: {fileID: 0}
     age: 0
     stats:
     - StatType: 2

@@ -17,9 +17,9 @@ MonoBehaviour:
     \uC5B4\uB5BB\uAC8C \uC0DD\uAC01\uD574\uC57C\uD560\uAE4C?"
   image: {fileID: 0}
   statMins: []
-  hasPreviousStory: 0
+  hasPreviousStory: 1
   hasntAnyOptions: 0
-  timeDoesntPass: 0
+  timeDoesntPass: 1
   nextStory: {fileID: 0}
   options:
   - optionText: "\uB450\uADFC."

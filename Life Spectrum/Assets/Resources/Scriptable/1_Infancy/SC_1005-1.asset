@@ -27,7 +27,7 @@ MonoBehaviour:
   - optionText: "\uCD95\uAD6C\uACF5\uC744 \uC7A1\uB294\uB2E4."
     optionDetailText: "\uCD95\uC798\uC54C\uC774 \uAFC8\uC774 \uB418\uC168\uC2B5\uB2C8\uB2E4."
     isPositive: 0
-    nextStory: {fileID: 11400000, guid: b4a655b8bbff1414b8800cbb52da0aa5, type: 2}
+    nextStory: {fileID: 0}
     age: 0
     stats:
     - StatType: 1

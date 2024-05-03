@@ -28,7 +28,7 @@ MonoBehaviour:
   - optionText: "\uB530\uB77C\uD55C\uB2E4."
     optionDetailText: "\uC810\uC810 \uBA38\uB9AC\uAC00 \uC544\uD515\uB2C8\uB2E4."
     isPositive: 0
-    nextStory: {fileID: 11400000}
+    nextStory: {fileID: 0}
     age: 0
     stats:
     - StatType: 0

@@ -35,8 +35,8 @@ MonoBehaviour:
   - optionText: "\uC190\uAC00\uB77D\uC744 \uC785\uC548\uC5D0 \uB123\uB294\uB2E4."
     optionDetailText: "\uBD80\uBAA8\uB2D8\uC740 \uBAA8\uB974\uC2DC\uACA0\uC9C0\uB9CC\n\uB2F9\uC2E0\uC740
       \uD6CC\uB96D\uD788 \uD574\uACB0\uD558\uC168\uC2B5\uB2C8\uB2E4!"
-    isPositive: 0
-    nextStory: {fileID: 11400000, guid: db2d00cfab2e4b74488854dca2b99e43, type: 2}
+    isPositive: 1
+    nextStory: {fileID: 0}
     age: 0
     stats:
     - StatType: 0
