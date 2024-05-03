@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.EventSystems;
 
 namespace LIFESPECTRUM
 {
@@ -52,7 +53,7 @@ namespace LIFESPECTRUM
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.gameObject.name == "Touchable")
+                if (hit.transform.gameObject.name == "StoryCard")
                 {
                     Debug.Log("Hit: " + hit.transform.gameObject.name);
                     card = hit.transform.parent.gameObject;
