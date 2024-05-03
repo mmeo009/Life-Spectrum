@@ -465,10 +465,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  storyObjects: []
+  storyObjects:
+  - {fileID: 11400000, guid: 2a193a5e40519a245b6eaa588d232bd6, type: 2}
+  - {fileID: 11400000, guid: 95f9604818d52814991036be58d58a53, type: 2}
+  - {fileID: 11400000, guid: c0fa45ba0d3d5bc4f925909f1fa6d0b6, type: 2}
+  - {fileID: 11400000, guid: c511c629bbd23d547bf698e27dfe6e9e, type: 2}
+  - {fileID: 11400000, guid: 34cabb2715ac9144f9874066c2378ec8, type: 2}
+  - {fileID: 11400000, guid: 6968399c9057a814996b854ebf8b92ee, type: 2}
+  - {fileID: 11400000, guid: e729c5d68d3a1e643aa8359d5a6b4f5c, type: 2}
+  - {fileID: 11400000, guid: 33e3958c2c31b9c43ae398077963d9cf, type: 2}
+  - {fileID: 11400000, guid: 8614bf934f5c6384fade53959b06fe13, type: 2}
+  - {fileID: 11400000, guid: 1c5037eb76dbe3d45840cccaab836651, type: 2}
+  - {fileID: 11400000, guid: b91704990873ca240ab2b8aaef8e1aca, type: 2}
+  - {fileID: 11400000, guid: 077d3b0ef7e976a40b95f873914ffdd8, type: 2}
+  - {fileID: 11400000, guid: 50a77d2cf4462e64ea99063bf300a5a6, type: 2}
+  - {fileID: 11400000, guid: 54c83e23775d1d04c85355116a49999c, type: 2}
+  - {fileID: 11400000, guid: f22427fccceed614e84b9f802bf6c791, type: 2}
+  - {fileID: 11400000, guid: 06e8e2539a26fd442b9e8b2ad5bfb7a5, type: 2}
+  - {fileID: 11400000, guid: b5fb18ba922f3664a9582cbc1544e174, type: 2}
+  - {fileID: 11400000, guid: dfc036adebd70a447afcee329d40d7bf, type: 2}
+  - {fileID: 11400000, guid: a5c1ec7123d9d87469357a2a811f3030, type: 2}
+  - {fileID: 11400000, guid: be3d14a2f9d94bb4aa10cc233b53f1c4, type: 2}
+  - {fileID: 11400000, guid: 8c1e8d9c932d57e4c949160e64e3c796, type: 2}
+  - {fileID: 11400000, guid: 91235725189fcfb4f84e1ba027590f81, type: 2}
+  - {fileID: 11400000, guid: a8da3d62fa5a0eb4082f0aced099232c, type: 2}
+  - {fileID: 11400000, guid: 70fae436119c5a44981346a9bfc84800, type: 2}
+  - {fileID: 11400000, guid: b4a655b8bbff1414b8800cbb52da0aa5, type: 2}
+  - {fileID: 11400000, guid: b90e0249d6ada2c4ba546de83f88a84a, type: 2}
+  - {fileID: 11400000, guid: 5b69cd23297102e46b4ba7072c830002, type: 2}
+  - {fileID: 11400000, guid: 5903d51cbb529a54e848737661a17334, type: 2}
+  - {fileID: 11400000, guid: db2d00cfab2e4b74488854dca2b99e43, type: 2}
+  - {fileID: 11400000, guid: 7a010581cab5b2647a402184bd21331f, type: 2}
+  - {fileID: 11400000, guid: 3c1f40d367d27564bbf562fc7eb6dca2, type: 2}
+  - {fileID: 11400000, guid: 8c784674cf6fae34f9163014e96a2942, type: 2}
+  - {fileID: 11400000, guid: 588c36f205afcc14db52e27a1b792c33, type: 2}
+  - {fileID: 11400000, guid: cd3b9194bb3936142aeb03617407ea5e, type: 2}
+  - {fileID: 11400000, guid: 29f2bdc1cd0fcad43af8b8da58a51d1d, type: 2}
+  - {fileID: 11400000, guid: 0eed117ae46a79944a1c917e2746059f, type: 2}
+  - {fileID: 11400000, guid: 51642f7fb80556e45bf07c4939bc20ad, type: 2}
+  - {fileID: 11400000, guid: 96a6bd64ae6d9184b95bc80a110d2ec7, type: 2}
+  - {fileID: 11400000, guid: e89498bc20f3c934b94159429ab758bc, type: 2}
+  - {fileID: 11400000, guid: a40e88c6e8c0c434b84882816ddac93b, type: 2}
+  - {fileID: 11400000, guid: 9083e48409f12264caba0fea956cc922, type: 2}
+  - {fileID: 11400000, guid: 8647d3818e47a314b9caa7512413e9a4, type: 2}
+  - {fileID: 11400000, guid: a5988b1f1fb8daf44b380b21d7c6c6d0, type: 2}
   pickedStorys: []
   myDebuffsPerSec: []
   timer: 0
+  filePath: 
   myDebuffs: []
 --- !u!4 &633824906
 Transform:

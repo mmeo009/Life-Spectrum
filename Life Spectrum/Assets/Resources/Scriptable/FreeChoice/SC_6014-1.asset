@@ -19,6 +19,7 @@ MonoBehaviour:
   statMins: []
   hasPreviousStory: 0
   hasntAnyOptions: 0
+  timeDoesntPass: 0
   nextStory: {fileID: 0}
   options:
   - optionText: "\uB450\uADFC."

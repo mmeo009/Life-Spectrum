@@ -12,20 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257ab2af6e69e4b49ae96da574742c27, type: 3}
   m_Name: SC_1004-1
   m_EditorClassIdentifier: 
-  StoryText: "\uAC11\uC790\uAE30 \uC7A0\uC774 \uC624\uC9C0 \uC54A\uC544\uC11C \uC11C\uB7FD\uB2E4.\n\uC6B8\uACE0
-    \uC2F6\uC5B4\uC9C0\uB294\uB370 \uC5B4\uB5BB\uAC8C \uD558\uC9C0?"
+  titleText: 
+  storyText: 
   image: {fileID: 2100000, guid: b06b26bb2591d6c47a7d73669304ec79, type: 2}
   statMins: []
   hasPreviousStory: 0
-  nextStory: {fileID: 11400000, guid: 70fae436119c5a44981346a9bfc84800, type: 2}
+  hasntAnyOptions: 0
+  timeDoesntPass: 0
+  nextStory: {fileID: 0}
   options:
-  - OptionText: "\uC6B4\uB2E4."
+  - optionText: 
+    optionDetailText: 
     isPositive: 0
     nextStory: {fileID: 0}
     age: 0
     stats: []
     debuffs: []
-  - OptionText: 
+  - optionText: 
+    optionDetailText: 
     isPositive: 1
     nextStory: {fileID: 0}
     age: 0

@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257ab2af6e69e4b49ae96da574742c27, type: 3}
   m_Name: SC_1016
   m_EditorClassIdentifier: 
-  StoryText: 
+  titleText: 
+  storyText: 
   image: {fileID: 0}
   statMins: []
   hasPreviousStory: 0
+  hasntAnyOptions: 0
+  timeDoesntPass: 0
   nextStory: {fileID: 0}
   options: []

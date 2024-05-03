@@ -19,6 +19,7 @@ MonoBehaviour:
   statMins: []
   hasPreviousStory: 0
   hasntAnyOptions: 0
+  timeDoesntPass: 0
   nextStory: {fileID: 0}
   options:
   - optionText: "\uAD00\uC808\uC5D0 \uC548\uC88B\uB2E4\uB294 \uB9D0\uC774.. \uADF8\uB798\uB3C4?"

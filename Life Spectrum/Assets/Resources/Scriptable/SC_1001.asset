@@ -12,22 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257ab2af6e69e4b49ae96da574742c27, type: 3}
   m_Name: SC_1001
   m_EditorClassIdentifier: 
-  StoryText: "\uB0B4 \uB208 \uC55E\uC5D0 \uBCF4\uC774\uB294 \uC0AC\uB78C\uC740?"
+  titleText: 
+  storyText: 
   image: {fileID: 2100000, guid: 17c56db47cdba304fa7690c8564a5966, type: 2}
   statMins:
   - StatType: 4
     age: 1
     Amount: 0
   hasPreviousStory: 0
-  nextStory: {fileID: 11400000, guid: be3d14a2f9d94bb4aa10cc233b53f1c4, type: 2}
+  hasntAnyOptions: 0
+  timeDoesntPass: 0
+  nextStory: {fileID: 0}
   options:
-  - OptionText: "\uC544\uBE60"
+  - optionText: 
+    optionDetailText: 
     isPositive: 0
     nextStory: {fileID: 0}
     age: 0
     stats: []
     debuffs: []
-  - OptionText: "\uC5C4\uB9C8"
+  - optionText: 
+    optionDetailText: 
     isPositive: 1
     nextStory: {fileID: 0}
     age: 0

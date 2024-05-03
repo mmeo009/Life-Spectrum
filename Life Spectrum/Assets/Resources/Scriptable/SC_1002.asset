@@ -12,16 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257ab2af6e69e4b49ae96da574742c27, type: 3}
   m_Name: SC_1002
   m_EditorClassIdentifier: 
-  StoryText: "\uBC30\uAC00 \uACE0\uD508\uB370... \uC774\uAC83\uC744 \uBA39\uC5B4\uBCFC\uAE4C?"
+  titleText: 
+  storyText: 
   image: {fileID: 2100000, guid: cc8fae63d0ba8244d94a4720273888ce, type: 2}
   statMins:
   - StatType: 4
     age: 1
     Amount: 0
   hasPreviousStory: 0
-  nextStory: {fileID: 11400000, guid: 8c1e8d9c932d57e4c949160e64e3c796, type: 2}
+  hasntAnyOptions: 0
+  timeDoesntPass: 0
+  nextStory: {fileID: 0}
   options:
-  - OptionText: "\uBA39\uC5B4\uBCF4\uC790!"
+  - optionText: 
+    optionDetailText: 
     isPositive: 0
     nextStory: {fileID: 0}
     age: 0
@@ -35,7 +39,8 @@ MonoBehaviour:
       amount: 1
       Method: 0
     debuffs: []
-  - OptionText: "\uC5C4\uB9C8 \uAE30\uB2E4\uB9AC\uC790"
+  - optionText: 
+    optionDetailText: 
     isPositive: 1
     nextStory: {fileID: 0}
     age: 0

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using System.Linq;
+using Newtonsoft.Json;
+using System.IO;
+using Newtonsoft.Json.Serialization;
+using System.Reflection;
 
 namespace LIFESPECTRUM
 {
@@ -28,6 +32,14 @@ namespace LIFESPECTRUM
             {
                 gameSystem.ResetStory();
             }
+            else if(GUILayout.Button("Save All Storys"))
+            {
+                gameSystem.SaveAllStorys();
+            }
+            else if(GUILayout.Button("Load All Storys"))
+            {
+                gameSystem.LoadAllData();
+            }
         }
 
     }
@@ -42,6 +54,7 @@ namespace LIFESPECTRUM
         [SerializeField] private List<StoryObject> pickedStorys;
         [SerializeField] private List<Debuff> myDebuffsPerSec = new List<Debuff>();
         [SerializeField] private float timer;
+        [SerializeField] private string filePath;
 
         [HideInInspector] public static GameSystem Instance;
 
@@ -593,6 +606,44 @@ namespace LIFESPECTRUM
         {
             storyObjects.Clear();
             pickedStorys.Clear();
+        }
+        [ContextMenu("Save All Storys")]
+        public void SaveAllStorys()
+        {
+            foreach(StoryObject data in storyObjects)
+            {
+                string filePath = Application.persistentDataPath + $"/{data.name}.Json";
+                // JSON 직렬화
+
+                var settings = new JsonSerializerSettings
+                {
+                    // Image 변수를 무시하도록 설정
+                    DefaultValueHandling = DefaultValueHandling.Ignore
+                };
+
+                string jsonData = JsonConvert.SerializeObject(data, settings);
+                // 파일 저장
+                File.WriteAllText(filePath, jsonData);
+            }
+
+        }
+        [ContextMenu("Load All Storys")]
+        public void LoadAllData()
+        {
+
+            foreach (StoryObject data in storyObjects)
+            {
+                string filePath = Application.persistentDataPath + $"/{data.name}.Json";
+                string jsonData = File.ReadAllText(filePath);
+
+                StoryObject _data = ScriptableObject.CreateInstance<StoryObject>();
+                JsonUtility.FromJsonOverwrite(jsonData, _data);
+
+                data.CopyFrom(_data);
+                EditorUtility.SetDirty(data);
+                AssetDatabase.SaveAssets();
+            }
+
         }
 #endif
     }
