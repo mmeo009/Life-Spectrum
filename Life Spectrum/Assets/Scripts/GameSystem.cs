@@ -52,6 +52,8 @@ namespace LIFESPECTRUM
 
         [SerializeField] private List<StoryObject> storyObjects;
         [SerializeField] private List<StoryObject> pickedStorys;
+        [SerializeField] private int nowStoryNum;
+        [SerializeField] private StoryObject nowStory;
         [SerializeField] private List<Debuff> myDebuffsPerSec = new List<Debuff>();
         [SerializeField] private float timer;
         [SerializeField] private string filePath;
@@ -68,7 +70,7 @@ namespace LIFESPECTRUM
         }
         private void Update()
         {
-            if(myDebuffsPerSec.Count > 0)
+            if (myDebuffsPerSec.Count > 0)
             {
                 DebuffPerSec();
             }
@@ -435,6 +437,7 @@ namespace LIFESPECTRUM
                     break;
                 }
             }
+            nowStoryNum = 0;
             return ShuffleStory(storyTemp);
         }
 
@@ -462,6 +465,32 @@ namespace LIFESPECTRUM
             }
 
             return shuffled;
+        }
+
+        private StoryObject LoadNextStory(bool isAgeChanged = false)
+        {
+            if(isAgeChanged == true)
+            {
+                pickedStorys = PickStoryObjects(30);
+                DebuffPerYear();
+                return pickedStorys[nowStoryNum];
+            }
+            else
+            {
+                nowStoryNum++;
+                if (nowStoryNum < pickedStorys.Count)
+                {
+                    DebuffPerYear();
+                    return pickedStorys[nowStoryNum];
+                }
+                else
+                {
+                    pickedStorys = PickStoryObjects(30);
+                    DebuffPerYear();
+                    return pickedStorys[nowStoryNum];
+                }
+            }
+
         }
         private bool StatMinChack(StatMin stat)
         {
@@ -495,7 +524,7 @@ namespace LIFESPECTRUM
                         return false;
                     }
                 case Enums.PlayerStats.Age:
-                    if (stat.age != Enums.Age.All)
+                    if (stat.age != Enums.Age.None)
                     {
                         switch(stat.age)
                         {
@@ -548,7 +577,7 @@ namespace LIFESPECTRUM
                                 return false;
                         }
                     }
-                    else
+                    else if(stat.age == Enums.Age.None)
                     {
 
                         if (gameManager.stats.age >= stat.Amount)
@@ -559,6 +588,10 @@ namespace LIFESPECTRUM
                         {
                             return false;
                         }
+                    }
+                    else
+                    {
+                        return false;
                     }
                 case Enums.PlayerStats.Money:
                     if (gameManager.stats.statMoney >= stat.Amount)
@@ -572,6 +605,130 @@ namespace LIFESPECTRUM
                 default:
                     return false;
             }
+        }
+
+        private bool AgeChack(Enums.Age ageRange, float age = 0)
+        {
+            if(age <= 0)
+            {
+                switch (ageRange)
+                {
+                    case Enums.Age.Infancy:
+                        if (gameManager.stats.age < 6)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    case Enums.Age.Adolescence:
+                        if (gameManager.stats.age >= 6 && gameManager.stats.age <= 19)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    case Enums.Age.Youth:
+                        if (gameManager.stats.age >= 20 && gameManager.stats.age <= 39)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    case Enums.Age.MiddleAge:
+                        if (gameManager.stats.age >= 40 && gameManager.stats.age <= 59)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    case Enums.Age.Elderly:
+                        if (gameManager.stats.age >= 60)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    default:
+                        return false;
+                }
+            }
+            else
+            {
+                return (gameManager.stats.age >= age) ? true : false;
+            }
+        }
+
+        public void ApplyOption(Option option)
+        {
+            for(int i = 0; i< option.stats.Count; i++)
+            {
+                ChangePlayerStat(option.stats[i]);
+            }
+
+            for(int i = 0; i < option.debuffs.Count; i++)
+            {
+                AddMyDebuff(option.debuffs[i]);
+            }
+
+            //TODO : 나이에 따라 true false 바꾸기
+            nowStory = LoadNextStory(false);
+            gameManager.ChangeStoryUI(nowStory);
+        }
+        public Option[] PickOptions()
+        {
+            Option[] tempOptions = new Option[2];
+
+            if (nowStory.options.Count == 2)
+            {
+                tempOptions = nowStory.options.ToArray();
+            }
+            else
+            {
+                var positive = new List<Option>();
+                var negative = new List<Option>();
+
+                foreach(Option o in nowStory.options)
+                {
+                    if(o.isPositive == true)
+                    {
+                        positive.Add(o);
+                    }
+                    else
+                    {
+                        negative.Add(o);
+                    }
+                }
+
+                for(int i =0; i < positive.Count; i++)
+                {
+                    if(AgeChack(positive[i].age) == true)
+                    {
+                        tempOptions[0] = positive[i];
+                        break;
+                    }
+                }
+
+                for (int i = 0; i < negative.Count; i++)
+                {
+                    if (AgeChack(negative[i].age) == true)
+                    {
+                        tempOptions[1] = negative[i];
+                        break;
+                    }
+                }
+            }
+
+            return tempOptions;
         }
 
 

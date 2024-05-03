@@ -115,6 +115,18 @@ namespace LIFESPECTRUM
                 rotateTween.Kill();
             }
 
+            if(Mathf.Round(card.transform.position.x) > 0.5)
+            {
+                if(isLeft == true)
+                {
+                    //TODO : ¿ÞÂÊ²¨ ¹ÝÈ¯
+                }
+                else
+                {
+                    //TODO : ¿À¸¥ÂÊ²¨ ¹ÝÈ¯
+                }
+            }
+
             card.transform.DORotate(Vector3.zero, 0.1f).SetEase(Ease.Linear);
             card.transform.DOMove(new Vector3(0, 0, -0.5f), 0.1f);
             Debug.Log((isLeft == true) ? "¿ÞÂÊ" : "¿À¸¥ÂÊ");

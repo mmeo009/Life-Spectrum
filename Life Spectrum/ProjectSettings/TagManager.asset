@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - StatImage
+  - AgeText
+  - StoryCard
   layers:
   - Default
   - TransparentFX

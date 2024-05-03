@@ -30,6 +30,7 @@ namespace LIFESPECTRUM
         /// </summary>
         public enum Age
         {
+            None,
             All,
             Infancy, 
             Adolescence,
@@ -41,6 +42,13 @@ namespace LIFESPECTRUM
         {
             PerSec,
             PerYear
+        }
+
+        public enum GameState
+        {
+            Play,
+            Pause,
+            Exit
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using Newtonsoft.Json;
 using LIFESPECTRUM;
 
@@ -34,25 +35,51 @@ public class GameManager : MonoBehaviour
     private string key = "평오는귀여워히히";
 
     private Dictionary<string, GameObject> statUI;
+    private TMP_Text ageText;
+    private GameObject storyCard;
 
     [Header("세이브 파일 경로")] public string saveFilePath = null;
     [Header("게임 데이터")] public Stats stats = new Stats();
 
-    public GameObject OptionsWindow;
-    public Dictionary<int, StoryObject> storys = new Dictionary<int, StoryObject>();
+    public Option[] nowOptions;
 
 
     public void Start()
     {
         saveFilePath = Application.persistentDataPath + "/LifeSpectrum.json";
-        ChangeStatUI();
     }
 
     public void StartGame()
     {
 
     }
+    public void ChangeAgeAndUI()
+    {
+        if(stats.age < 6)
+        {
+            stats.age += 0.25f;
+        }
+        else
+        {
+            stats.age += 1;
+        }
 
+        if(ageText == null)
+        {
+            ageText = GameObject.FindWithTag("AgeText").GetComponent<TMP_Text>();
+        }
+
+        float quarter = (int)stats.age - stats.age;
+
+        if (quarter > 0)
+        {
+            ageText.text = $"{(int)stats.age}살 {quarter * 100 / 25} 분기";
+        }
+        else
+        {
+            ageText.text = $"{stats.age}살";
+        }
+    }
     public void ChangeStatUI()
     {
         if(statUI == null)
@@ -71,6 +98,17 @@ public class GameManager : MonoBehaviour
         statUI["Personality"].GetComponent<Image>().fillAmount = stats.maxPersonality / stats.statPersonality;
         statUI["Strength"].GetComponent<Image>().fillAmount = stats.maxStrength / stats.statStrength;
         statUI["Money"].GetComponent<Image>().fillAmount = stats.maxMoney / stats.statMoney;
+    }
+    public void ChangeStoryUI(StoryObject story)
+    {
+        if(storyCard == null)
+        {
+            storyCard = GameObject.FindWithTag("StoryCard");
+        }
+
+        storyCard.transform.Find("StoryCardImage").GetComponent<MeshRenderer>().material = story.image;
+        storyCard.transform.Find("Text_Title").GetComponent<TMP_Text>().text = story.titleText;
+        storyCard.transform.Find("Text_Story").GetComponent<TMP_Text>().text = story.storyText;
     }
 
     // 게임 데이터 저장
