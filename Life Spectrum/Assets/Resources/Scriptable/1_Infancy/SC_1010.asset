@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257ab2af6e69e4b49ae96da574742c27, type: 3}
+  m_Name: SC_1010
+  m_EditorClassIdentifier: 
+  titleText: "\uBB34\uC11C\uC6B4 \uAFC8"
+  storyText: "\uCE68\uB300 \uBC11\uC5D0 \uAD34\uBB3C\uC774 \uC788\uB294 \uAFC8\uC744
+    \uAFB8\uC5C8\uB2E4.\n\uB2E4\uC2DC \uBABB \uC798 \uAC83 \uAC19\uC544..."
+  image: {fileID: 0}
+  statMins:
+  - StatType: 4
+    age: 2
+    Amount: 0
+  hasPreviousStory: 0
+  hasntAnyOptions: 0
+  timeDoesntPass: 0
+  nextStory: {fileID: 0}
+  options:
+  - optionText: "\uC5C4\uB9C8\uB97C \uCC3E\uB294\uB2E4"
+    optionDetailText: "\uB2E4\uB3C5\uC5EC \uC8FC\uC168\uC2B5\uB2C8\uB2E4."
+    isPositive: 0
+    nextStory: {fileID: 11400000, guid: 7a010581cab5b2647a402184bd21331f, type: 2}
+    age: 0
+    stats:
+    - StatType: 2
+      isMaxAmount: 1
+      amount: 10
+      Method: 0
+    debuffs: []
+  - optionText: "\uC544\uBE60\uB97C \uCC3E\uB294\uB2E4"
+    optionDetailText: "\uAD34\uBB3C\uD55C\uD14C \uC9C0\uC9C0 \uB9D0\uB77C\uACE0 \uD558\uC168\uC2B5\uB2C8\uB2E4."
+    isPositive: 1
+    nextStory: {fileID: 11400000, guid: 7a010581cab5b2647a402184bd21331f, type: 2}
+    age: 0
+    stats:
+    - StatType: 1
+      isMaxAmount: 0
+      amount: 10
+      Method: 0
+    debuffs: []
