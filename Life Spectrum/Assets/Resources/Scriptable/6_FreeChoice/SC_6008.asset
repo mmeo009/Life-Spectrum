@@ -16,7 +16,7 @@ MonoBehaviour:
   storyText: "\uCC38\uC744\uB9CC\uC740 \uD558\uC9C0\uB9CC \uAC00\uACE0 \uC2F6\uB2E4.
     \uADF8\uCE58\uB9CC \uD560 \uC77C\uC774 \uB108\uBB34 \uBC00\uB824\uC11C \uC2DC\uAC04\uC774
     \uBD80\uC871\uD558\uB2E4."
-  image: {fileID: 0}
+  image: {fileID: 2100000, guid: 6afc63175ca3ac74485387373760dabd, type: 2}
   statMins: []
   hasPreviousStory: 0
   hasntAnyOptions: 0
@@ -32,7 +32,7 @@ MonoBehaviour:
     stats:
     - StatType: 1
       isMaxAmount: 0
-      amount: 1
+      amount: 10
       Method: 0
     debuffs: []
   - optionText: "\uCC38\uC790."
@@ -44,10 +44,10 @@ MonoBehaviour:
     stats:
     - StatType: 1
       isMaxAmount: 0
-      amount: 1
+      amount: 10
       Method: 1
     - StatType: 3
       isMaxAmount: 0
-      amount: 2
+      amount: 10
       Method: 0
     debuffs: []
