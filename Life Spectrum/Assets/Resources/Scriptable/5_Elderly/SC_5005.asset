@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257ab2af6e69e4b49ae96da574742c27, type: 3}
+  m_Name: SC_5005
+  m_EditorClassIdentifier: 
+  titleText: "\uD559\uC0DD\uB4E4"
+  storyText: "\uAE08\uC5F0\uAD6C\uC5ED\uC5D0\uC11C \uB2F4\uBC30\uB97C \uD53C\uB2E4\uB2C8
+    \uB04C\uB04C,,"
+  image: {fileID: 0}
+  statMins:
+  - StatType: 4
+    age: 6
+    Amount: 60
+  hasPreviousStory: 0
+  hasntAnyOptions: 0
+  timeDoesntPass: 0
+  nextStory: {fileID: 0}
+  options:
+  - optionText: "\uD638\uD1B5\uCE5C\uB2E4"
+    optionDetailText: "\"\uD559\uC0DD\uB4E4!! \uAC70\uAE30\uC11C \uD53C\uBA74 \uC548\uB3FC!!\"\n\uD559\uC0DD\uB4E4\uC774
+      \uB098\uAC00\uBA74\uC11C \uC5B4\uAE68\uB97C \uBC00\uACE0 \uAC14\uC73C\uB098\n\uB299\uC740
+      \uB2F9\uC2E0\uC740 \uB118\uC5B4\uC84C\uC2B5\uB2C8\uB2E4."
+    isPositive: 0
+    nextStory: {fileID: 0}
+    age: 0
+    stats: []
+    debuffs:
+    - debuffName: "\uD37D!"
+      debuffType: 1
+      amountOfTime: 1
+      stat:
+      - StatType: 1
+        isMaxAmount: 0
+        amount: 5
+        Method: 1
+  - optionText: "\uAC19\uC774 \uD540\uB2E4"
+    optionDetailText: "\"\uB299\uC740\uC774\uC5D0\uAC8C \uD55C \uB300 \uBE4C\uB824
+      \uC904 \uC218 \uC788\uB098?\""
+    isPositive: 0
+    nextStory: {fileID: 0}
+    age: 0
+    stats:
+    - StatType: 0
+      isMaxAmount: 0
+      amount: 10
+      Method: 0
+    - StatType: 1
+      isMaxAmount: 0
+      amount: 20
+      Method: 1
+    debuffs: []
