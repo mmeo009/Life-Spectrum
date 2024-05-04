@@ -45,7 +45,7 @@ MonoBehaviour:
   - optionText: "\uAC19\uC774 \uD540\uB2E4"
     optionDetailText: "\"\uB299\uC740\uC774\uC5D0\uAC8C \uD55C \uB300 \uBE4C\uB824
       \uC904 \uC218 \uC788\uB098?\""
-    isPositive: 0
+    isPositive: 1
     nextStory: {fileID: 0}
     age: 0
     stats:

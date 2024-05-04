@@ -45,10 +45,14 @@ MonoBehaviour:
         isMaxAmount: 0
         amount: 5
         Method: 1
-  - optionText: 
-    optionDetailText: 
-    isPositive: 0
+  - optionText: "\uD6C4!.."
+    optionDetailText: "\"\uAC00\uBCF4\uC790..!\""
+    isPositive: 1
     nextStory: {fileID: 0}
     age: 0
-    stats: []
+    stats:
+    - StatType: 1
+      isMaxAmount: 0
+      amount: 10
+      Method: 0
     debuffs: []

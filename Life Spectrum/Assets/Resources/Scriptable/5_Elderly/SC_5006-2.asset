@@ -15,7 +15,10 @@ MonoBehaviour:
   titleText: "3\uACE0?"
   storyText: "\uB208 \uC55E\uC5D0 \uB3C8\uC774 \uC810\uC810 \uB9CE\uC774 \uC313\uC778\uB2E4."
   image: {fileID: 0}
-  statMins: []
+  statMins:
+  - StatType: 4
+    age: 6
+    Amount: 60
   hasPreviousStory: 1
   hasntAnyOptions: 0
   timeDoesntPass: 0
@@ -34,7 +37,7 @@ MonoBehaviour:
     debuffs: []
   - optionText: "\uC2A4\uD1B1!"
     optionDetailText: "\uC774 \uC815\uB3C4\uBA74 \uB410\uC5B4 \uC774\uAC74 \uC544\uB2C8\uC57C"
-    isPositive: 0
+    isPositive: 1
     nextStory: {fileID: 0}
     age: 0
     stats:

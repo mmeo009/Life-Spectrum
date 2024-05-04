@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257ab2af6e69e4b49ae96da574742c27, type: 3}
   m_Name: SC_5009
   m_EditorClassIdentifier: 
-  titleText: 
-  storyText: 
+  titleText: "\uB450\uB451!"
+  storyText: "\"\uC5B4\uC73D!\""
   image: {fileID: 0}
   statMins:
   - StatType: 4
@@ -23,4 +23,30 @@ MonoBehaviour:
   hasntAnyOptions: 0
   timeDoesntPass: 0
   nextStory: {fileID: 0}
-  options: []
+  options:
+  - optionText: "\uD6C4.."
+    optionDetailText: "\"\uC2A4\uD2B8\uB808\uCE6D\uC744 \uD558\uB2C8 \uC88B\uAD6C\uBA3C\""
+    isPositive: 1
+    nextStory: {fileID: 0}
+    age: 0
+    stats:
+    - StatType: 1
+      isMaxAmount: 0
+      amount: 10
+      Method: 0
+    debuffs: []
+  - optionText: "\uC73D.."
+    optionDetailText: "\"\uB0B4 \uD5C8\uB9AC!\""
+    isPositive: 0
+    nextStory: {fileID: 0}
+    age: 0
+    stats: []
+    debuffs:
+    - debuffName: "\uB178\uD654\uB85C \uC778\uD55C \uCC99\uCD94\uD1B5\uC99D"
+      debuffType: 1
+      amountOfTime: 1
+      stat:
+      - StatType: 1
+        isMaxAmount: 0
+        amount: 5
+        Method: 1

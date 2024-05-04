@@ -15,7 +15,10 @@ MonoBehaviour:
   titleText: "\uCCB4\uC721 \uC2DC\uAC04"
   storyText: "\uC790\uC720\uC2DC\uAC04\uC778\uB370, \uBB34\uC2A8 \uC6B4\uB3D9\uC744\uD558\uC9C0?"
   image: {fileID: 0}
-  statMins: []
+  statMins:
+  - StatType: 4
+    age: 3
+    Amount: 6
   hasPreviousStory: 0
   hasntAnyOptions: 0
   timeDoesntPass: 0
@@ -24,7 +27,7 @@ MonoBehaviour:
   - optionText: "\uCD95\uAD6C"
     optionDetailText: "\uCD95\uAD6C\uB97C \uC2DC\uC791\uD558\uC600\uC2B5\uB2C8\uB2E4."
     isPositive: 0
-    nextStory: {fileID: 11400000, guid: 2708d9fb5bd630e488d1e01be167765a, type: 2}
+    nextStory: {fileID: 0}
     age: 0
     stats:
     - StatType: 0

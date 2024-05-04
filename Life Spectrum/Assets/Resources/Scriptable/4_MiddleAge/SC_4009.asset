@@ -40,7 +40,7 @@ MonoBehaviour:
   - optionText: "\uB3C4\uC804!"
     optionDetailText: "\uB098\uC774\uAC00 \uBB54 \uB300\uC218\uB0D0!"
     isPositive: 1
-    nextStory: {fileID: 11400000, guid: ecb982b8c592d414fa680a175a7bae86, type: 2}
+    nextStory: {fileID: 0}
     age: 5
     stats:
     - StatType: 0

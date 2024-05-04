@@ -16,7 +16,10 @@ MonoBehaviour:
   storyText: "\uD559\uAD50\uC5D0\uC11C \uC885\uC774\uC811\uAE30\uB97C \uC811\uB294
     \uC2DC\uAC04\uC774\uB2E4"
   image: {fileID: 0}
-  statMins: []
+  statMins:
+  - StatType: 4
+    age: 3
+    Amount: 6
   hasPreviousStory: 0
   hasntAnyOptions: 0
   timeDoesntPass: 0

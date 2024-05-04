@@ -49,7 +49,7 @@ MonoBehaviour:
     debuffs: []
   - optionText: "\uACC4\uC0B0 \uBD80\uD0C1\uB4DC\uB9AC\uC624.."
     optionDetailText: "\"\uC9C0\uB098\uAC04\uAC74 \uC9C0\uB098\uAC04 \uC77C\uC774\uC9C0..\""
-    isPositive: 0
+    isPositive: 1
     nextStory: {fileID: 0}
     age: 0
     stats:
