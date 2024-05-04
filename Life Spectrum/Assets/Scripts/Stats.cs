@@ -22,6 +22,19 @@ namespace LIFESPECTRUM
         public int maxPersonality;
         public int maxMoney;
         public float age;
+
+        public Stats(int intelligence, int strength, int personality, int money, int maxIntelligence, int maxStrength, int maxPersonality, int maxMoney, float age)
+        {
+            this.statIntelligence = intelligence;
+            this.statStrength = strength;
+            this.statPersonality = personality;
+            this.statMoney = money;
+            this.maxIntelligence = maxIntelligence;
+            this.maxStrength = maxStrength;
+            this.maxPersonality = maxPersonality;
+            this.maxMoney = maxMoney;
+            this.age = age;
+        }
     }
 
 }
