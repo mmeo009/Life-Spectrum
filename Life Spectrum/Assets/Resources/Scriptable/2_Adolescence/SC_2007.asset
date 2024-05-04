@@ -24,10 +24,10 @@ MonoBehaviour:
   - optionText: "\uCD95\uAD6C"
     optionDetailText: "\uCD95\uAD6C\uB97C \uC2DC\uC791\uD558\uC600\uC2B5\uB2C8\uB2E4."
     isPositive: 0
-    nextStory: {fileID: 0}
+    nextStory: {fileID: 11400000, guid: 2708d9fb5bd630e488d1e01be167765a, type: 2}
     age: 0
     stats:
-    - StatType: 1
+    - StatType: 0
       isMaxAmount: 0
       amount: 20
       Method: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
     nextStory: {fileID: 0}
     age: 0
     stats:
-    - StatType: 1
+    - StatType: 0
       isMaxAmount: 0
       amount: 10
       Method: 0

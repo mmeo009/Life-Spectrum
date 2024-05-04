@@ -17,9 +17,9 @@ MonoBehaviour:
     \uC788\uB2E4."
   image: {fileID: 0}
   statMins: []
-  hasPreviousStory: 0
+  hasPreviousStory: 1
   hasntAnyOptions: 0
-  timeDoesntPass: 0
+  timeDoesntPass: 1
   nextStory: {fileID: 0}
   options:
   - optionText: "\uACE0\uAD6C\uB9C8\uB294 \uB9DB\uC788\uC5B4"
@@ -28,7 +28,7 @@ MonoBehaviour:
     nextStory: {fileID: 0}
     age: 0
     stats:
-    - StatType: 2
+    - StatType: 0
       isMaxAmount: 0
       amount: 10
       Method: 1
