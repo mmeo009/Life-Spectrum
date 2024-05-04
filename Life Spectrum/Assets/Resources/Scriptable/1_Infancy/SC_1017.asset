@@ -19,7 +19,7 @@ MonoBehaviour:
   statMins:
   - StatType: 4
     age: 2
-    Amount: 0
+    Amount: 1
   hasPreviousStory: 0
   hasntAnyOptions: 0
   timeDoesntPass: 0

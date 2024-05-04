@@ -17,7 +17,19 @@ MonoBehaviour:
     \uD558\uC9C0 \uBABB\uD574 \uC2A4\uD2B8\uB808\uC2A4\uB97C \uBC1B\uACE0 \uC788\uB2E4.
     \uD761\uC5F0\uC744 \uD558\uACE0 \uC2F6\uC740\uB370 \uACE8\uBAA9\uC774 \uBCF4\uC778\uB2E4."
   image: {fileID: 2100000, guid: e7c86755ceb40f14ab4c505a89cdb739, type: 2}
-  statMins: []
+  statMins:
+  - StatType: 4
+    age: 2
+    Amount: 0
+  - StatType: 4
+    age: 3
+    Amount: 0
+  - StatType: 4
+    age: 4
+    Amount: 0
+  - StatType: 4
+    age: 6
+    Amount: 0
   hasPreviousStory: 0
   hasntAnyOptions: 0
   timeDoesntPass: 0
