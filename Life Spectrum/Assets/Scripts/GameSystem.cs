@@ -53,16 +53,31 @@ namespace LIFESPECTRUM
         [SerializeField] private List<StoryObject> storyObjects;
         [SerializeField] private List<StoryObject> pickedStorys;
         [SerializeField] private int nowStoryNum;
-        [SerializeField] private StoryObject nowStory;
+
         [SerializeField] private List<Debuff> myDebuffsPerSec = new List<Debuff>();
         [SerializeField] private float timer;
         [SerializeField] private string filePath;
 
-        [HideInInspector] public static GameSystem Instance;
+
+        [HideInInspector] public static GameSystem Instance { get; private set; }
 
         public List<Debuff> myDebuffs;
+        public Option[] nowOptions;
+        public StoryObject nowStory;
 
-
+        private void Awake()
+        {
+            if (Instance)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            else
+            {
+                transform.parent = null;
+                Instance = this;
+            }
+        }
 
         private void Start()
         {
@@ -334,7 +349,7 @@ namespace LIFESPECTRUM
             {
                 myDebuffs.Add(debuff);
 
-                if (df.debuffType == Enums.DebuffType.PerSec)
+                if (debuff.debuffType == Enums.DebuffType.PerSec)
                 {
                     myDebuffsPerSec.Add(debuff);
                 }
@@ -454,10 +469,11 @@ namespace LIFESPECTRUM
                 shuffled.Add(addStory);
 
             System.Random rng = new System.Random();
-            int n = list.Count;
+            int n = shuffled.Count;
 
-            while(n > 1)
+            while (n > 1)
             {
+                n--;
                 int o = rng.Next(n + 1);
                 var story = shuffled[o];
                 shuffled[o] = shuffled[n];
@@ -680,9 +696,20 @@ namespace LIFESPECTRUM
                 AddMyDebuff(option.debuffs[i]);
             }
 
-            //TODO : 나이에 따라 true false 바꾸기
-            nowStory = LoadNextStory(false);
+            if (gameManager.stats.age == 6 || gameManager.stats.age == 20 || gameManager.stats.age == 40 || gameManager.stats.age == 60)
+            {
+                nowStory = LoadNextStory(true);
+                nowOptions = PickOptions();
+            }
+            else
+            {
+                nowStory = LoadNextStory(false);
+                nowOptions = PickOptions();
+            }
+
             gameManager.ChangeStoryUI(nowStory);
+            gameManager.ChangeStatUI();
+            gameManager.ChangeAgeAndUI();
         }
         public Option[] PickOptions()
         {
@@ -730,7 +757,11 @@ namespace LIFESPECTRUM
 
             return tempOptions;
         }
-
+        public void StartFirstStory()
+        {
+            nowStory = storyObjects.Find(so => so.name == "SC_1001");
+            nowOptions = PickOptions();
+        }
 
 #if UNITY_EDITOR
         [ContextMenu("Load Story")]

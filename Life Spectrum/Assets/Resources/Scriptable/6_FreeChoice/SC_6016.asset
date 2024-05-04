@@ -15,10 +15,36 @@ MonoBehaviour:
   titleText: "\uAE30\uBD80"
   storyText: "\uC694\uC998 \uAE30\uBD80\uB97C \uD558\uB294 \uC9C0\uC778\uB4E4\uC774
     \uB298\uC5C8\uB2E4. \uB098\uB3C4 \uAE30\uBD80\uB97C \uD574\uBCFC\uAE4C?"
-  image: {fileID: 0}
+  image: {fileID: 2100000, guid: 1b9fa2c8957174c488c472d970238c90, type: 2}
   statMins: []
   hasPreviousStory: 0
   hasntAnyOptions: 0
   timeDoesntPass: 0
   nextStory: {fileID: 0}
-  options: []
+  options:
+  - optionText: "\uD55C\uB2E4"
+    optionDetailText: "\uAE30\uBD80\uCC9C\uC0AC\uC785\uB2C8\uB2E4."
+    isPositive: 0
+    nextStory: {fileID: 0}
+    age: 0
+    stats:
+    - StatType: 3
+      isMaxAmount: 0
+      amount: 10
+      Method: 1
+    - StatType: 2
+      isMaxAmount: 0
+      amount: 10
+      Method: 0
+    debuffs: []
+  - optionText: "\uD558\uC9C0 \uC54A\uB294\uB2E4"
+    optionDetailText: "\uD558\uC9C0 \uC54A\uC744 \uC218\uB3C4 \uC788\uAE34 \uD558\uC8E0."
+    isPositive: 0
+    nextStory: {fileID: 0}
+    age: 0
+    stats:
+    - StatType: 2
+      isMaxAmount: 0
+      amount: 10
+      Method: 1
+    debuffs: []

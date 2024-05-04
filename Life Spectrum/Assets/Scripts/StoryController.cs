@@ -74,6 +74,7 @@ namespace LIFESPECTRUM
                 {
                     target.x = -2;
                 }
+
             }
             else if (target.x > 0)
             {
@@ -83,6 +84,7 @@ namespace LIFESPECTRUM
                 {
                     target.x = 2;
                 }
+
             }
             var modifiedVector = new Vector3(target.x, 0, -0.5f);
             var rotationAngle = isLeft ? 13f : -13f;
@@ -99,7 +101,7 @@ namespace LIFESPECTRUM
                 rotateTween.Kill();
             }
 
-
+            gameManager.ChangeStoryUI(GameSystem.Instance.nowStory, true, isLeft);
             moveTween = card.transform.DOMove(modifiedVector, delta).SetEase(Ease.Linear);
             rotateTween = card.transform.DORotate(new Vector3(0, 0, rotationAngle), delta).SetEase(Ease.Linear);
         }
@@ -115,15 +117,15 @@ namespace LIFESPECTRUM
                 rotateTween.Kill();
             }
 
-            if(Mathf.Round(card.transform.position.x) > 0.5)
+            if(Mathf.Abs(card.transform.position.x) > 0.3)
             {
                 if(isLeft == true)
                 {
-                    //TODO : ¿ÞÂÊ²¨ ¹ÝÈ¯
+                    GameSystem.Instance.ApplyOption(GameSystem.Instance.nowOptions[1]);
                 }
                 else
                 {
-                    //TODO : ¿À¸¥ÂÊ²¨ ¹ÝÈ¯
+                    GameSystem.Instance.ApplyOption(GameSystem.Instance.nowOptions[0]);
                 }
             }
 

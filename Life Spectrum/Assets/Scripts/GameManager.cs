@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     private GameObject storyCard;
 
     [Header("세이브 파일 경로")] public string saveFilePath = null;
-    [Header("게임 데이터")] public Stats stats = new Stats();
+    [Header("게임 데이터")] public Stats stats;
 
     public Option[] nowOptions;
 
@@ -47,11 +47,16 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         saveFilePath = Application.persistentDataPath + "/LifeSpectrum.json";
+        StartGame();
     }
 
     public void StartGame()
     {
-
+        stats = new Stats(50, 50, 50, 50, 100, 100, 100, 100, 0);
+        GameSystem.Instance.StartFirstStory();
+        ChangeStoryUI(GameSystem.Instance.nowStory);
+        ChangeStatUI();
+        ChangeAgeAndUI();
     }
     public void ChangeAgeAndUI()
     {
@@ -71,7 +76,7 @@ public class GameManager : MonoBehaviour
 
         float quarter = (int)stats.age - stats.age;
 
-        if (quarter > 0)
+        if (quarter < 1)
         {
             ageText.text = $"{(int)stats.age}살 {quarter * 100 / 25} 분기";
         }
@@ -94,12 +99,12 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        statUI["Intelligence"].GetComponent<Image>().fillAmount = stats.maxIntelligence / stats.statIntelligence;
-        statUI["Personality"].GetComponent<Image>().fillAmount = stats.maxPersonality / stats.statPersonality;
-        statUI["Strength"].GetComponent<Image>().fillAmount = stats.maxStrength / stats.statStrength;
-        statUI["Money"].GetComponent<Image>().fillAmount = stats.maxMoney / stats.statMoney;
+        statUI["Intelligence"].GetComponent<Image>().fillAmount = (float)stats.statIntelligence / (float)stats.maxIntelligence;
+        statUI["Personality"].GetComponent<Image>().fillAmount = (float)stats.statPersonality / (float)stats.maxPersonality;
+        statUI["Strength"].GetComponent<Image>().fillAmount = (float)stats.statStrength / (float)stats.maxStrength;
+        statUI["Money"].GetComponent<Image>().fillAmount = (float)stats.statMoney / (float)stats.maxMoney;
     }
-    public void ChangeStoryUI(StoryObject story)
+    public void ChangeStoryUI(StoryObject story,bool isDragging = false, bool isLeft = false)
     {
         if(storyCard == null)
         {
@@ -107,8 +112,26 @@ public class GameManager : MonoBehaviour
         }
 
         storyCard.transform.Find("StoryCardImage").GetComponent<MeshRenderer>().material = story.image;
-        storyCard.transform.Find("Text_Title").GetComponent<TMP_Text>().text = story.titleText;
-        storyCard.transform.Find("Text_Story").GetComponent<TMP_Text>().text = story.storyText;
+
+        if (isDragging == false)
+        {
+            storyCard.transform.Find("Text_Title").GetComponent<TextMeshPro>().text = story.titleText;
+            storyCard.transform.Find("Text_Story").GetComponent<TextMeshPro>().text = story.storyText;
+        }
+        else
+        {
+            if(isLeft == true)
+            {
+                storyCard.transform.Find("Text_Title").GetComponent<TextMeshPro>().text = GameSystem.Instance.nowOptions[1].optionText;
+                storyCard.transform.Find("Text_Story").GetComponent<TextMeshPro>().text = GameSystem.Instance.nowOptions[1].optionDetailText;
+            }
+            else
+            {
+                storyCard.transform.Find("Text_Title").GetComponent<TextMeshPro>().text = GameSystem.Instance.nowOptions[0].optionText;
+                storyCard.transform.Find("Text_Story").GetComponent<TextMeshPro>().text = GameSystem.Instance.nowOptions[0].optionDetailText;
+            }
+        }
+
     }
 
     // 게임 데이터 저장
