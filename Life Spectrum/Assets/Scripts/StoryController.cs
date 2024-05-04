@@ -117,7 +117,7 @@ namespace LIFESPECTRUM
                 rotateTween.Kill();
             }
 
-            if(Mathf.Round(card.transform.position.x) > 0.3)
+            if(Mathf.Abs(card.transform.position.x) > 0.3)
             {
                 if(isLeft == true)
                 {
