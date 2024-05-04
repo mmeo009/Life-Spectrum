@@ -99,10 +99,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        statUI["Intelligence"].GetComponent<Image>().fillAmount = stats.statIntelligence / stats.maxIntelligence;
-        statUI["Personality"].GetComponent<Image>().fillAmount = stats.statPersonality / stats.maxPersonality;
-        statUI["Strength"].GetComponent<Image>().fillAmount = stats.statStrength / stats.maxStrength;
-        statUI["Money"].GetComponent<Image>().fillAmount = stats.statMoney / stats.maxMoney;
+        statUI["Intelligence"].GetComponent<Image>().fillAmount = (float)stats.statIntelligence / (float)stats.maxIntelligence;
+        statUI["Personality"].GetComponent<Image>().fillAmount = (float)stats.statPersonality / (float)stats.maxPersonality;
+        statUI["Strength"].GetComponent<Image>().fillAmount = (float)stats.statStrength / (float)stats.maxStrength;
+        statUI["Money"].GetComponent<Image>().fillAmount = (float)stats.statMoney / (float)stats.maxMoney;
     }
     public void ChangeStoryUI(StoryObject story,bool isDragging = false, bool isLeft = false)
     {
