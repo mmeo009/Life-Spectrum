@@ -17,7 +17,10 @@ MonoBehaviour:
     \uBC29\uC74C\uC774 \uB410\uB294\uC9C0\n\uC548\uB410\uB294\uC9C0 \uAE30\uC5B5\uC774
     \uC548\uB098\uB124.."
   image: {fileID: 0}
-  statMins: []
+  statMins:
+  - StatType: 4
+    age: 3
+    Amount: 0
   hasPreviousStory: 0
   hasntAnyOptions: 0
   timeDoesntPass: 0

@@ -15,7 +15,10 @@ MonoBehaviour:
   titleText: "\uBC9A\uAF43"
   storyText: "\uBC9A\uAF43\uC774 \uC774\uC058\uAC8C \uD3C8\uB2E4."
   image: {fileID: 2100000, guid: 946570f30ab782a44b0a67a87dbdaec7, type: 2}
-  statMins: []
+  statMins:
+  - StatType: 4
+    age: 3
+    Amount: 0
   hasPreviousStory: 0
   hasntAnyOptions: 0
   timeDoesntPass: 0
