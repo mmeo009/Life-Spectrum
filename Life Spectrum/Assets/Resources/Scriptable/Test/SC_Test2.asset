@@ -38,7 +38,7 @@ MonoBehaviour:
     debuffs:
     - debuffName: 
       debuffType: 0
-      amountOfTime: 0
+      amountOfTime: -1
       stat: []
   - optionText: 
     optionDetailText: 
