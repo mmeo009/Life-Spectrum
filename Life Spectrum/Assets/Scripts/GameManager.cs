@@ -123,12 +123,10 @@ public class GameManager : MonoBehaviour
             if(isLeft == true)
             {
                 storyCard.transform.Find("Text_Title").GetComponent<TextMeshPro>().text = GameSystem.Instance.nowOptions[1].optionText;
-                storyCard.transform.Find("Text_Story").GetComponent<TextMeshPro>().text = GameSystem.Instance.nowOptions[1].optionDetailText;
             }
             else
             {
                 storyCard.transform.Find("Text_Title").GetComponent<TextMeshPro>().text = GameSystem.Instance.nowOptions[0].optionText;
-                storyCard.transform.Find("Text_Story").GetComponent<TextMeshPro>().text = GameSystem.Instance.nowOptions[0].optionDetailText;
             }
         }
 

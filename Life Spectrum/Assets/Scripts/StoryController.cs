@@ -128,6 +128,10 @@ namespace LIFESPECTRUM
                     GameSystem.Instance.ApplyOption(GameSystem.Instance.nowOptions[0]);
                 }
             }
+            else
+            {
+                gameManager.ChangeStoryUI(GameSystem.Instance.nowStory);
+            }
 
             card.transform.DORotate(Vector3.zero, 0.1f).SetEase(Ease.Linear);
             card.transform.DOMove(new Vector3(0, 0, -0.5f), 0.1f);
