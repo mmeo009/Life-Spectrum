@@ -17,7 +17,10 @@ MonoBehaviour:
     \uBE75\uACFC \uD30C\uC2A4\uD0C0, \uBC25\uACFC \uB098\uBB3C\uBC16\uC5D0 \uC5C6\uB2E4.
     \uADF8\uB0E5 \uBC30\uB2EC\uC744 \uBA39\uC744\uAE4C?"
   image: {fileID: 2100000, guid: 3a35d85edeb1a604caf741ac7484539c, type: 2}
-  statMins: []
+  statMins:
+  - StatType: 4
+    age: 4
+    Amount: 0
   hasPreviousStory: 0
   hasntAnyOptions: 0
   timeDoesntPass: 0
