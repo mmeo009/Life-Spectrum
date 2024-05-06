@@ -51,6 +51,7 @@ namespace LIFESPECTRUM
         [SerializeField] private GameManager gameManager;
 
         [SerializeField] private List<StoryObject> storyObjects;
+        [SerializeField] private List<StoryObject> endStorys;
         [SerializeField] private List<StoryObject> pickedStorys;
         [SerializeField] private int nowStoryNum;
 
@@ -107,9 +108,10 @@ namespace LIFESPECTRUM
                         {
                             gameManager.stats.maxIntelligence -= stat.amount;
 
-                            if (gameManager.stats.maxIntelligence < 1)
+                            if (gameManager.stats.maxIntelligence < 2)
                             {
-                                gameManager.stats.maxIntelligence = 1;
+                                gameManager.stats.maxIntelligence = 2;
+                                gameManager.stats.statIntelligence = 1;
                             }
                         }
                         else if (stat.Method == Enums.ActonMethod.Set)
@@ -130,9 +132,10 @@ namespace LIFESPECTRUM
                         {
                             gameManager.stats.maxStrength -= stat.amount;
 
-                            if (gameManager.stats.maxStrength < 1)
+                            if (gameManager.stats.maxStrength < 2)
                             {
-                                gameManager.stats.maxStrength = 1;
+                                gameManager.stats.maxStrength = 2;
+                                gameManager.stats.statStrength = 1;
                             }
                         }
                         else if (stat.Method == Enums.ActonMethod.Set)
@@ -153,14 +156,21 @@ namespace LIFESPECTRUM
                         {
                             gameManager.stats.maxPersonality -= stat.amount;
 
-                            if (gameManager.stats.maxPersonality < 1)
+                            if (gameManager.stats.maxPersonality < 2)
                             {
-                                gameManager.stats.maxPersonality = 1;
+                                gameManager.stats.maxPersonality = 2;
+                                gameManager.stats.statPersonality = 1;
                             }
                         }
                         else if (stat.Method == Enums.ActonMethod.Set)
                         {
-                            gameManager.stats.maxIntelligence = stat.amount;
+                            gameManager.stats.maxPersonality = stat.amount;
+
+                            if (gameManager.stats.maxPersonality < 2)
+                            {
+                                gameManager.stats.maxPersonality = 2;
+                                gameManager.stats.statPersonality = 1;
+                            }
                         }
                         else
                         {
@@ -168,7 +178,34 @@ namespace LIFESPECTRUM
                         }
                         break;
                     case Enums.PlayerStats.Money:
-                        Debug.LogError("존재 하지 않아!");
+                        if (stat.Method == Enums.ActonMethod.Add)
+                        {
+                            gameManager.stats.maxMoney += stat.amount;
+                        }
+                        else if (stat.Method == Enums.ActonMethod.Subtract)
+                        {
+                            gameManager.stats.maxMoney -= stat.amount;
+
+                            if (gameManager.stats.maxMoney < 2)
+                            {
+                                gameManager.stats.maxMoney = 2;
+                                gameManager.stats.statMoney = 1;
+                            }
+                        }
+                        else if (stat.Method == Enums.ActonMethod.Set)
+                        {
+                            gameManager.stats.maxMoney = stat.amount;
+
+                            if (gameManager.stats.maxMoney < 2)
+                            {
+                                gameManager.stats.maxMoney = 2;
+                                gameManager.stats.statMoney = 1;
+                            }
+                        }
+                        else
+                        {
+                            Debug.LogError("존재 하지 않아!");
+                        }
                         break;
                     case Enums.PlayerStats.Age:
                         Debug.LogError("존재 하지 않아!");
@@ -189,7 +226,7 @@ namespace LIFESPECTRUM
 
                             if (gameManager.stats.statIntelligence >= gameManager.stats.maxIntelligence)
                             {
-                                // TODO : PlayerDie(Enums.PlayerStats.maxIntelligence);
+                                PlayerDie(Enums.PlayerStats.Intelligence, true);
                             }
                         }
                         else if (stat.Method == Enums.ActonMethod.Subtract)
@@ -198,7 +235,7 @@ namespace LIFESPECTRUM
 
                             if (gameManager.stats.statIntelligence <= 0)
                             {
-                                // TODO : PlayerDie(Enums.PlayerStats.Intelligence);
+                                PlayerDie(Enums.PlayerStats.Intelligence);
                             }
                         }
                         else if (stat.Method == Enums.ActonMethod.Set)
@@ -207,7 +244,11 @@ namespace LIFESPECTRUM
 
                             if (gameManager.stats.statIntelligence <= 0)
                             {
-                                // TODO : PlayerDie(Enums.PlayerStats.Intelligence);
+                                PlayerDie(Enums.PlayerStats.Intelligence);
+                            }
+                            else if (gameManager.stats.statIntelligence >= gameManager.stats.maxIntelligence)
+                            {
+                                PlayerDie(Enums.PlayerStats.Intelligence, true);
                             }
                         }
                         else
@@ -222,7 +263,7 @@ namespace LIFESPECTRUM
 
                             if (gameManager.stats.statStrength >= gameManager.stats.maxStrength)
                             {
-                                // TODO : PlayerDie(Enums.PlayerStats.maxStrength);
+                                PlayerDie(Enums.PlayerStats.Strength, true);
                             }
                         }
                         else if (stat.Method == Enums.ActonMethod.Subtract)
@@ -231,7 +272,7 @@ namespace LIFESPECTRUM
 
                             if (gameManager.stats.statStrength <= 0)
                             {
-                                // TODO : PlayerDie(Enums.PlayerStats.statStrength);
+                                PlayerDie(Enums.PlayerStats.Strength);
                             }
                         }
                         else if (stat.Method == Enums.ActonMethod.Set)
@@ -240,7 +281,11 @@ namespace LIFESPECTRUM
 
                             if (gameManager.stats.statStrength <= 0)
                             {
-                                // TODO : PlayerDie(Enums.PlayerStats.statStrength);
+                                PlayerDie(Enums.PlayerStats.Strength);
+                            }
+                            else if (gameManager.stats.statStrength >= gameManager.stats.maxStrength)
+                            {
+                                PlayerDie(Enums.PlayerStats.Strength, true);
                             }
                         }
                         else
@@ -255,7 +300,7 @@ namespace LIFESPECTRUM
 
                             if (gameManager.stats.statPersonality >= gameManager.stats.maxPersonality)
                             {
-                                // TODO : PlayerDie(Enums.PlayerStats.maxPersonality);
+                                PlayerDie(Enums.PlayerStats.Personality, true);
                             }
                         }
                         else if (stat.Method == Enums.ActonMethod.Subtract)
@@ -264,7 +309,7 @@ namespace LIFESPECTRUM
 
                             if (gameManager.stats.statPersonality <= 0)
                             {
-                                // TODO : PlayerDie(Enums.PlayerStats.statPersonality);
+                                PlayerDie(Enums.PlayerStats.Personality);
                             }
                         }
                         else if (stat.Method == Enums.ActonMethod.Set)
@@ -273,7 +318,11 @@ namespace LIFESPECTRUM
 
                             if (gameManager.stats.statPersonality <= 0)
                             {
-                                // TODO : PlayerDie(Enums.PlayerStats.statPersonality);
+                                PlayerDie(Enums.PlayerStats.Personality);
+                            }
+                            else if (gameManager.stats.statPersonality >= gameManager.stats.maxPersonality)
+                            {
+                                PlayerDie(Enums.PlayerStats.Personality, true);
                             }
                         }
                         else
@@ -285,6 +334,11 @@ namespace LIFESPECTRUM
                         if (stat.Method == Enums.ActonMethod.Add)
                         {
                             gameManager.stats.statMoney += stat.amount;
+
+                            if(gameManager.stats.statMoney >= gameManager.stats.maxMoney)
+                            {
+                                PlayerDie(Enums.PlayerStats.Money, true);
+                            }
                         }
                         else if (stat.Method == Enums.ActonMethod.Subtract)
                         {
@@ -292,7 +346,7 @@ namespace LIFESPECTRUM
 
                             if (gameManager.stats.statMoney <= 0)
                             {
-                                // TODO : PlayerDie(Enums.PlayerStats.statMoney);
+                                PlayerDie(Enums.PlayerStats.Money);
                             }
                         }
                         else if (stat.Method == Enums.ActonMethod.Set)
@@ -301,7 +355,11 @@ namespace LIFESPECTRUM
 
                             if (gameManager.stats.statMoney <= 0)
                             {
-                                // TODO : PlayerDie(Enums.PlayerStats.statMoney);
+                                PlayerDie(Enums.PlayerStats.Money);
+                            }
+                            else if (gameManager.stats.statMoney >= gameManager.stats.maxMoney)
+                            {
+                                PlayerDie(Enums.PlayerStats.Money, true);
                             }
                         }
                         else
@@ -388,19 +446,29 @@ namespace LIFESPECTRUM
             {
                 if (myDebuffsPerSec.Count > 0)
                 {
-                    foreach (Debuff debuff in myDebuffsPerSec)
+                    List<Debuff> debuffsPerSec = new List<Debuff>();
+
+                    foreach(Debuff persec in myDebuffsPerSec)
+                    {
+                        debuffsPerSec.Add(persec);
+                    }
+
+                    foreach (Debuff debuff in debuffsPerSec)
                     {
                         for (int i = 0; i < debuff.stat.Count; i++)
                         {
                             ChangePlayerStat(debuff.stat[i]);
                         }
 
+                        var _debuff = myDebuffsPerSec.Find(_debuff => _debuff.debuffName == debuff.debuffName);
+
+                        _debuff.amountOfTime -= 1;
                         debuff.amountOfTime -= 1;
 
-                        if (debuff.amountOfTime <= 0)
+                        if (_debuff.amountOfTime <= 0)
                         {
-                            myDebuffsPerSec.Remove(debuff);
-                            myDebuffs.Remove(debuff);
+                            myDebuffsPerSec.Remove(_debuff);
+                            myDebuffs.Remove(_debuff);
                         }
                     }
                 }
@@ -682,6 +750,11 @@ namespace LIFESPECTRUM
             {
                 return (gameManager.stats.age >= age) ? true : false;
             }
+        }
+
+        private void PlayerDie(Enums.PlayerStats stat, bool isMaxStat = false)
+        {
+            
         }
 
         public void ApplyOption(Option option)
