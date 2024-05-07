@@ -11,6 +11,7 @@ using UnityEngine.UI;
 using TMPro;
 using Newtonsoft.Json;
 using LIFESPECTRUM;
+using UnityEditor.SearchService;
 
 
 public class GameManager : MonoBehaviour
@@ -43,11 +44,35 @@ public class GameManager : MonoBehaviour
 
     public Option[] nowOptions;
 
-
     public void Start()
     {
         saveFilePath = Application.persistentDataPath + "/LifeSpectrum.json";
-        StartGame();
+        if (SceneManager.GetActiveScene().name == "MainScene")
+        {
+            GameObject.Find("StartButton").GetComponent<Button>().onClick.AddListener(() => LoadScene("GameScene"));
+        }
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        if(SceneManager.GetSceneByName(sceneName) != null)
+        {
+            var op = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+
+            if(op.isDone == true)
+            {
+                StartGame();
+            }
+            else
+            {
+                Invoke("StartGame", 0.4f);
+            }
+
+        }
+        else
+        {
+            Debug.LogError("씬이 없소다");
+        }
     }
 
     public void StartGame()
@@ -129,7 +154,6 @@ public class GameManager : MonoBehaviour
                 storyCard.transform.Find("Text_Title").GetComponent<TextMeshPro>().text = GameSystem.Instance.nowOptions[0].optionText;
             }
         }
-
     }
 
     // 게임 데이터 저장
