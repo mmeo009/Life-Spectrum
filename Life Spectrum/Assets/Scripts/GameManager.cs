@@ -11,7 +11,7 @@ using UnityEngine.UI;
 using TMPro;
 using Newtonsoft.Json;
 using LIFESPECTRUM;
-using UnityEditor.SearchService;
+
 
 
 public class GameManager : MonoBehaviour
@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     private Dictionary<string, GameObject> statUI;
     private TMP_Text ageText;
     private GameObject storyCard;
+    private Material noneMaterial;
 
     [Header("세이브 파일 경로")] public string saveFilePath = null;
     [Header("게임 데이터")] public Stats stats;
@@ -49,24 +50,23 @@ public class GameManager : MonoBehaviour
         saveFilePath = Application.persistentDataPath + "/LifeSpectrum.json";
         if (SceneManager.GetActiveScene().name == "MainScene")
         {
-            GameObject.Find("StartButton").GetComponent<Button>().onClick.AddListener(() => LoadScene("GameScene"));
+            GameObject.Find("StartButton").GetComponent<Button>().onClick.AddListener(() => StartCoroutine(IE_LoadScene("GameScene")));
         }
     }
 
-    public void LoadScene(string sceneName)
+    IEnumerator IE_LoadScene(string sceneName)
     {
         if(SceneManager.GetSceneByName(sceneName) != null)
         {
             var op = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
 
-            if(op.isDone == true)
+            while (!op.isDone)
             {
-                StartGame();
+                yield return null;
             }
-            else
-            {
-                Invoke("StartGame", 0.4f);
-            }
+
+            StartGame();
+            yield break;
 
         }
         else
@@ -78,6 +78,11 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         stats = new Stats(50, 50, 50, 50, 100, 100, 100, 100, 0);
+
+        if(GameSystem.Instance == null)
+        {
+
+        }
         GameSystem.Instance.StartFirstStory();
         ChangeStoryUI(GameSystem.Instance.nowStory);
         ChangeStatUI();
@@ -99,11 +104,18 @@ public class GameManager : MonoBehaviour
             ageText = GameObject.FindWithTag("AgeText").GetComponent<TMP_Text>();
         }
 
-        float quarter = (int)stats.age - stats.age;
+        float quarter = stats.age - (int)stats.age ;
 
         if (quarter < 1)
         {
-            ageText.text = $"{(int)stats.age}살 {quarter * 100 / 25} 분기";
+            if((int)stats.age < 1)
+            {
+                ageText.text = $"{Mathf.Abs(quarter * 100 / 25)} 분기";
+            }
+            else
+            {
+                ageText.text = $"{(int)stats.age}살 {quarter * 100 / 25} 분기";
+            }
         }
         else
         {
@@ -136,7 +148,23 @@ public class GameManager : MonoBehaviour
             storyCard = GameObject.FindWithTag("StoryCard");
         }
 
-        storyCard.transform.Find("StoryCardImage").GetComponent<MeshRenderer>().material = story.image;
+        if(story.image == null)
+        {
+            if(noneMaterial == null)
+            {
+                noneMaterial = Resources.Load<Material>("Materials/Null/Null");
+                storyCard.transform.Find("StoryCardImage").GetComponent<MeshRenderer>().material = noneMaterial;
+            }
+            else
+            {
+                storyCard.transform.Find("StoryCardImage").GetComponent<MeshRenderer>().material = noneMaterial;
+            }
+        }
+        else
+        {
+            storyCard.transform.Find("StoryCardImage").GetComponent<MeshRenderer>().material = story.image;
+        }
+
 
         if (isDragging == false)
         {
