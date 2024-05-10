@@ -15,7 +15,7 @@ MonoBehaviour:
   titleText: "\uB208\uC774 \uCE68\uCE68"
   storyText: "\uC624\uB298\uB530\uB77C \uB208\uC774 \uCE68\uCE68\uD558\uB2E4. \uBC16\uC5D0
     \uB098\uAC00\uBCFC\uAE4C?"
-  image: {fileID: 0}
+  image: {fileID: 2100000, guid: c2a37d7e96e89264c8b2263c612e3805, type: 2}
   statMins:
   - StatType: 4
     age: 6

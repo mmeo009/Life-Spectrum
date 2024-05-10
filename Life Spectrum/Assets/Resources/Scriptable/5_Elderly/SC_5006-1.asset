@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleText: "2\uACE0?"
   storyText: "\uD310\uC774 \uC810\uC810 \uCEE4\uC9C0\uACE0 \uC788\uB2E4"
-  image: {fileID: 0}
+  image: {fileID: 2100000, guid: 8fbcaec804b931b49a60f77d93bc7dfc, type: 2}
   statMins:
   - StatType: 4
     age: 6
