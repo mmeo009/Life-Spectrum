@@ -135,11 +135,10 @@ public class GameManager : MonoBehaviour
                 Debug.Log(st.name.Substring(5));
             }
         }
-
-        statUI["Intelligence"].GetComponent<Image>().fillAmount = (float)stats.statIntelligence / (float)stats.maxIntelligence;
-        statUI["Personality"].GetComponent<Image>().fillAmount = (float)stats.statPersonality / (float)stats.maxPersonality;
-        statUI["Strength"].GetComponent<Image>().fillAmount = (float)stats.statStrength / (float)stats.maxStrength;
-        statUI["Money"].GetComponent<Image>().fillAmount = (float)stats.statMoney / (float)stats.maxMoney;
+        StartCoroutine(IE_ChageStatSlowLy(stats.statIntelligence, Enums.PlayerStats.Intelligence));
+        StartCoroutine(IE_ChageStatSlowLy(stats.statStrength, Enums.PlayerStats.Strength));
+        StartCoroutine(IE_ChageStatSlowLy(stats.statPersonality, Enums.PlayerStats.Personality));
+        StartCoroutine(IE_ChageStatSlowLy(stats.statMoney, Enums.PlayerStats.Money));
     }
     public void ChangeStoryUI(StoryObject story,bool isDragging = false, bool isLeft = false)
     {
@@ -182,6 +181,74 @@ public class GameManager : MonoBehaviour
                 storyCard.transform.Find("Text_Title").GetComponent<TextMeshPro>().text = GameSystem.Instance.nowOptions[0].optionText;
             }
         }
+    }
+    private IEnumerator IE_ChageStatSlowLy(float endValue, Enums.PlayerStats stat)
+    {
+        float elapsedTime = 0f;
+
+        Image statUIImage;
+        float maxValue;
+
+        if (stat == Enums.PlayerStats.Intelligence)
+        {
+            statUIImage = statUI["Intelligence"].GetComponent<Image>();
+            maxValue = (float)stats.maxIntelligence;
+        }
+        else if (stat == Enums.PlayerStats.Personality)
+        {
+            statUIImage = statUI["Personality"].GetComponent<Image>();
+            maxValue = (float)stats.maxPersonality;
+        }
+        else if (stat == Enums.PlayerStats.Strength)
+        {
+            statUIImage = statUI["Strength"].GetComponent<Image>();
+            maxValue = (float)stats.maxStrength;
+        }
+        else if (stat == Enums.PlayerStats.Money)
+        {
+            statUIImage = statUI["Money"].GetComponent<Image>();
+            maxValue = (float)stats.maxMoney;
+        }
+        else
+        {
+            yield break;
+        }
+
+        float startValue = statUIImage.fillAmount * maxValue;
+
+        while (elapsedTime < 1f)
+        {
+            float newValue = Mathf.Lerp(startValue, endValue, elapsedTime / 1f);
+            // 값을 적용하는 로직을 여기에 추가할 수 있습니다.
+            Debug.Log("현재 값: " + newValue);
+
+            if (stat == Enums.PlayerStats.Intelligence)
+            {
+                statUI["Intelligence"].GetComponent<Image>().fillAmount = (float)stats.statIntelligence / (float)stats.maxIntelligence;
+            }
+            else if (stat == Enums.PlayerStats.Personality)
+            {
+                statUI["Personality"].GetComponent<Image>().fillAmount = (float)stats.statPersonality / (float)stats.maxPersonality;
+            }
+            else if (stat == Enums.PlayerStats.Strength)
+            {
+                statUI["Strength"].GetComponent<Image>().fillAmount = (float)stats.statStrength / (float)stats.maxStrength;
+            }
+            else if (stat == Enums.PlayerStats.Money)
+            {
+                statUI["Money"].GetComponent<Image>().fillAmount = (float)stats.statMoney / (float)stats.maxMoney;
+            }
+            else
+            {
+                yield break;
+            }
+
+            elapsedTime += 0.1f;
+
+            yield return new WaitForSeconds(0.1f);
+        }
+
+
     }
 
     // 게임 데이터 저장
