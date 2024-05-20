@@ -10,43 +10,43 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 257ab2af6e69e4b49ae96da574742c27, type: 3}
-  m_Name: SC_3013
+  m_Name: SC_4011
   m_EditorClassIdentifier: 
-  titleText: "\uC219\uCDE8"
-  storyText: "\uC804\uB0A0\uC5D0 \uC220\uC744 \uB9C8\uC2E0 \uB2F9\uC2E0\uC740 \uC18D\uC774
-    \uC4F0\uB9BD\uB2C8\uB2E4."
+  titleText: "\uB3D9\uCC3D\uD68C"
+  storyText: "\uB3D9\uCC3D\uD68C \uCD08\uB300 \uBB38\uC790\uAC00 \uC654\uC2B5\uB2C8\uB2E4."
   image: {fileID: 0}
   statMins:
   - StatType: 4
-    age: 4
+    age: 5
     Amount: 0
   hasPreviousStory: 0
   hasntAnyOptions: 0
   timeDoesntPass: 0
   nextStory: {fileID: 0}
   options:
-  - optionText: "\uCE74\uD398"
-    optionDetailText: "\uCE74\uD398\uC5D0\uC11C \uD1A0\uB9C8\uD1A0 \uC8FC\uC2A4\uB97C\n\uB300\uC6A9\uB7C9\uC73C\uB85C
-      \uAD6C\uB9E4\uD55C \uB2F9\uC2E0\n\uC219\uCDE8\uAC00 \uBE60\uB974\uAC8C \uD574\uC18C\uB410\uC2B5\uB2C8\uB2E4."
+  - optionText: "\uAC00\uBCFC\uAE4C..?"
+    optionDetailText: "\uACE0\uBBFC\uC744 \uD558\uB358 \uB2F9\uC2E0\n\uC774\uBC88
+      \uB3D9\uCC3D\uD68C\uB294 \uBE60\uC9C0\uAE30\uB85C \uD588\uC2B5\uB2C8\uB2E4.\n\"\uC77C\uC774\uB098
+      \uD558\uC790\""
     isPositive: 1
     nextStory: {fileID: 0}
     age: 0
     stats:
-    - StatType: 1
+    - StatType: 3
       isMaxAmount: 0
-      amount: 10
+      amount: 19
       Method: 0
     debuffs: []
-  - optionText: "\uD3B8\uC758\uC810"
-    optionDetailText: "\uD3B8\uC758\uC810\uC5D0\uC11C \uC219\uCDE8 \uD574\uC18C\uC81C\uAC00
-      \uB108\uBB34 \uBE44\uC2F8\n\uC544\uBA54\uB9AC\uCE74\uB178\uB97C \uC0AC\uC11C
-      \uB9C8\uC168\uC2B5\uB2C8\uB2E4."
+  - optionText: "\uAC00\uC790~"
+    optionDetailText: "\uB3D9\uCC3D\uD68C\uC5D0\uC11C \uC790\uC2E0\uC758 \uC790\uB791\uC5D0
+      \uC2E0\uC774 \uB09C \uB2F9\uC2E0\n\uB3C8\uC744 \uBB34\uC9C0\uD558\uAC8C \uC4F0\uC168\uB124\uC694.
+      \uC798\uD558\uC168\uC2B5\uB2C8\uB2E4."
     isPositive: 0
     nextStory: {fileID: 0}
     age: 0
     stats:
-    - StatType: 1
+    - StatType: 3
       isMaxAmount: 0
-      amount: 10
+      amount: 20
       Method: 1
     debuffs: []
