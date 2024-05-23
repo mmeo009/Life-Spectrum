@@ -89,6 +89,11 @@ namespace LIFESPECTRUM
             var modifiedVector = new Vector3(target.x, 0, -0.5f);
             var rotationAngle = isLeft ? 13f : -13f;
 
+            if(Mathf.Abs(target.x) < 0.3f)
+            {
+                rotationAngle = 0f;
+            }
+
             delta *= Vector3.Distance(transform.position, modifiedVector);
 
             if (moveTween != null && moveTween.IsActive())

@@ -22,7 +22,7 @@ namespace LIFESPECTRUM
         public int maxPersonality;
         public int maxMoney;
         public float age;
-
+        public string[] storyNames;
         public Stats(int intelligence, int strength, int personality, int money, int maxIntelligence, int maxStrength, int maxPersonality, int maxMoney, float age)
         {
             this.statIntelligence = intelligence;

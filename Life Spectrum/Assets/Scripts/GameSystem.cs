@@ -10,40 +10,7 @@ using System.Reflection;
 
 namespace LIFESPECTRUM
 {
-#if UNITY_EDITOR
-    [CustomEditor(typeof(GameSystem))]
-    public class GameSystemEditor : Editor
-    {
-        public override void OnInspectorGUI()
-        {
-            base.OnInspectorGUI();
 
-            GameSystem gameSystem = (GameSystem)target;
-
-            if (GUILayout.Button("Load Story"))
-            {
-                gameSystem.LoadStoryObject();
-            }
-            else if(GUILayout.Button("Pick Cards"))
-            {
-                gameSystem.PickStory();
-            }
-            else if (GUILayout.Button("Reset Storys"))
-            {
-                gameSystem.ResetStory();
-            }
-            else if(GUILayout.Button("Save All Storys"))
-            {
-                gameSystem.SaveAllStorys();
-            }
-            else if(GUILayout.Button("Load All Storys"))
-            {
-                gameSystem.LoadAllData();
-            }
-        }
-
-    }
-#endif
     public class GameSystem : MonoBehaviour
     {
 
@@ -522,6 +489,23 @@ namespace LIFESPECTRUM
             }
             nowStoryNum = 0;
             return ShuffleStory(storyTemp);
+        }
+        private List<StoryObject> LoadStoryObjectsByNames(string[] storyNames)
+        {
+            List<StoryObject> storyTemp = new List<StoryObject>();
+
+            foreach(string name in storyNames)
+            {
+                foreach(StoryObject so in storyObjects)
+                {
+                    if(Equals(so.name, name))
+                    {
+                        storyTemp.Add(so);
+                        break;
+                    }
+                }
+            }
+            return storyTemp;
         }
 
         private List<StoryObject> ShuffleStory(List<StoryObject> list, StoryObject addStory = null)
