@@ -1052,6 +1052,7 @@ MonoBehaviour:
     maxPersonality: 0
     maxMoney: 0
     age: 0
+    storyNames: []
   nowOptions: []
 --- !u!4 &923821193
 Transform:
@@ -1605,9 +1606,10 @@ GameObject:
   - component: {fileID: 2084344623}
   - component: {fileID: 2084344626}
   - component: {fileID: 2084344625}
+  - component: {fileID: 2084344627}
   m_Layer: 6
   m_Name: StoryCardImage
-  m_TagString: Untagged
+  m_TagString: StoryCardImage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1676,6 +1678,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2084344622}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &2084344627
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084344622}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!222 &32768100857964885
 CanvasRenderer:
@@ -2272,28 +2296,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!64 &2933993867722208140
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3934263593039080502}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!224 &3044399296722589066
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2336,7 +2338,6 @@ GameObject:
   - component: {fileID: 2005675511404212392}
   - component: {fileID: 7207020915150948016}
   - component: {fileID: 7554406707758299886}
-  - component: {fileID: 2933993867722208140}
   m_Layer: 6
   m_Name: StoryCard
   m_TagString: StoryCard

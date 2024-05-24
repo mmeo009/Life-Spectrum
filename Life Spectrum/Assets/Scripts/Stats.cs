@@ -36,6 +36,5 @@ namespace LIFESPECTRUM
             this.age = age;
         }
     }
-
 }
 
