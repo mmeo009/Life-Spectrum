@@ -48,13 +48,22 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         saveFilePath = Application.persistentDataPath + "/LifeSpectrum.json";
+
         if (SceneManager.GetActiveScene().name == "MainScene")
         {
-            GameObject.Find("StartButton").GetComponent<Button>().onClick.AddListener(() => StartCoroutine(IE_LoadScene("GameScene")));
+            GameObject.Find("NewGame").GetComponent<Button>().onClick.AddListener(() => StartCoroutine(IE_LoadScene("GameScene")));
+            var button = GameObject.Find("LoadGame").GetComponent<Button>();
+            button.onClick.AddListener(() => StartCoroutine(IE_LoadScene("GameScene", true)));
+            button.gameObject.SetActive(false);
+
+            if (LoadData() != null)
+            {
+                button.gameObject.SetActive(true);
+            }
         }
     }
 
-    IEnumerator IE_LoadScene(string sceneName)
+    IEnumerator IE_LoadScene(string sceneName, bool hasSaveFile = false)
     {
         if(SceneManager.GetSceneByName(sceneName) != null)
         {
@@ -63,6 +72,11 @@ public class GameManager : MonoBehaviour
             while (!op.isDone)
             {
                 yield return null;
+            }
+
+            if(hasSaveFile == true)
+            {
+                stats = LoadData();
             }
 
             StartGame();
@@ -77,9 +91,12 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        stats = new Stats(50, 50, 50, 50, 100, 100, 100, 100, 0);
+        if(stats == null)
+        {
+            stats = new Stats(50, 50, 50, 50, 100, 100, 100, 100, 0);
+        }
 
-        if(GameSystem.Instance == null)
+        if (GameSystem.Instance == null)
         {
 
         }
@@ -140,7 +157,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(IE_ChageStatSlowLy(stats.statPersonality, Enums.PlayerStats.Personality));
         StartCoroutine(IE_ChageStatSlowLy(stats.statMoney, Enums.PlayerStats.Money));
     }
-    public void ChangeStoryUI(StoryObject story,bool isDragging = false, bool isLeft = false)
+    public void ChangeStoryUI(StoryObject story,bool isDragging = false, float targetX = 0)
     {
         if(storyCard == null)
         {
@@ -152,18 +169,17 @@ public class GameManager : MonoBehaviour
             if(noneMaterial == null)
             {
                 noneMaterial = Resources.Load<Material>("Materials/Null/Null");
-                storyCard.transform.Find("StoryCardImage").GetComponent<MeshRenderer>().material = noneMaterial;
+                GameObject.FindWithTag("StoryCardImage").transform.GetChild(0).GetComponent<MeshRenderer>().material = noneMaterial;
             }
             else
             {
-                storyCard.transform.Find("StoryCardImage").GetComponent<MeshRenderer>().material = noneMaterial;
+                GameObject.FindWithTag("StoryCardImage").transform.GetChild(0).GetComponent<MeshRenderer>().material = noneMaterial;
             }
         }
         else
         {
-            storyCard.transform.Find("StoryCardImage").GetComponent<MeshRenderer>().material = story.image;
+            GameObject.FindWithTag("StoryCardImage").transform.GetChild(0).GetComponent<MeshRenderer>().material = story.image;
         }
-
 
         if (isDragging == false)
         {
@@ -172,13 +188,20 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if(isLeft == true)
+            if(MathF.Abs(targetX) > 0.3f)
             {
-                storyCard.transform.Find("Text_Title").GetComponent<TextMeshPro>().text = GameSystem.Instance.nowOptions[1].optionText;
+                if(targetX <= 0)
+                {
+                    storyCard.transform.Find("Text_Title").GetComponent<TextMeshPro>().text = GameSystem.Instance.nowOptions[1].optionText;
+                }
+                else
+                {
+                    storyCard.transform.Find("Text_Title").GetComponent<TextMeshPro>().text = GameSystem.Instance.nowOptions[0].optionText;
+                }
             }
             else
             {
-                storyCard.transform.Find("Text_Title").GetComponent<TextMeshPro>().text = GameSystem.Instance.nowOptions[0].optionText;
+                storyCard.transform.Find("Text_Title").GetComponent<TextMeshPro>().text = story.titleText;
             }
         }
     }
@@ -218,8 +241,7 @@ public class GameManager : MonoBehaviour
 
         while (elapsedTime < 1f)
         {
-            float newValue = Mathf.Lerp(startValue, endValue, elapsedTime / 1f);
-            // 값을 적용하는 로직을 여기에 추가할 수 있습니다.
+            float newValue = Mathf.Lerp(startValue, statUIImage.fillAmount * endValue, elapsedTime / 1f);
             Debug.Log("현재 값: " + newValue);
 
             if (stat == Enums.PlayerStats.Intelligence)

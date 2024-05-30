@@ -53,7 +53,7 @@ namespace LIFESPECTRUM
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.gameObject.name == "StoryCard")
+                if (hit.transform.gameObject.name == "StoryCardImage")
                 {
                     Debug.Log("Hit: " + hit.transform.gameObject.name);
                     card = hit.transform.parent.gameObject;
@@ -106,7 +106,7 @@ namespace LIFESPECTRUM
                 rotateTween.Kill();
             }
 
-            gameManager.ChangeStoryUI(GameSystem.Instance.nowStory, true, isLeft);
+            gameManager.ChangeStoryUI(GameSystem.Instance.nowStory, true, target.x);
             moveTween = card.transform.DOMove(modifiedVector, delta).SetEase(Ease.Linear);
             rotateTween = card.transform.DORotate(new Vector3(0, 0, rotationAngle), delta).SetEase(Ease.Linear);
         }
