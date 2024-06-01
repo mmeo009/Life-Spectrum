@@ -91,16 +91,14 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        if(stats == null)
-        {
-            stats = new Stats(50, 50, 50, 50, 100, 100, 100, 100, 0);
-        }
+        stats = new Stats(50, 50, 50, 50, 100, 100, 100, 100, 0);
 
         if (GameSystem.Instance == null)
         {
 
         }
         GameSystem.Instance.StartFirstStory();
+
         ChangeStoryUI(GameSystem.Instance.nowStory);
         ChangeStatUI();
         ChangeAgeAndUI();
@@ -211,6 +209,7 @@ public class GameManager : MonoBehaviour
 
         Image statUIImage;
         float maxValue;
+        float startValue = 0f;
 
         if (stat == Enums.PlayerStats.Intelligence)
         {
@@ -237,28 +236,33 @@ public class GameManager : MonoBehaviour
             yield break;
         }
 
-        float startValue = statUIImage.fillAmount * maxValue;
+        if(statUIImage.fillAmount <= 0 || statUIImage.fillAmount == 1)
+        {
+            startValue = 0f;
+        }
+
+        startValue = statUIImage.fillAmount;
 
         while (elapsedTime < 1f)
         {
-            float newValue = Mathf.Lerp(startValue, statUIImage.fillAmount * endValue, elapsedTime / 1f);
+            float newValue = Mathf.Lerp(startValue, endValue / maxValue, elapsedTime / 1f);
             Debug.Log("ÇöÀç °ª: " + newValue);
 
             if (stat == Enums.PlayerStats.Intelligence)
             {
-                statUI["Intelligence"].GetComponent<Image>().fillAmount = (float)stats.statIntelligence / (float)stats.maxIntelligence;
+                statUI["Intelligence"].GetComponent<Image>().fillAmount = newValue;
             }
             else if (stat == Enums.PlayerStats.Personality)
             {
-                statUI["Personality"].GetComponent<Image>().fillAmount = (float)stats.statPersonality / (float)stats.maxPersonality;
+                statUI["Personality"].GetComponent<Image>().fillAmount = newValue;
             }
             else if (stat == Enums.PlayerStats.Strength)
             {
-                statUI["Strength"].GetComponent<Image>().fillAmount = (float)stats.statStrength / (float)stats.maxStrength;
+                statUI["Strength"].GetComponent<Image>().fillAmount = newValue;
             }
             else if (stat == Enums.PlayerStats.Money)
             {
-                statUI["Money"].GetComponent<Image>().fillAmount = (float)stats.statMoney / (float)stats.maxMoney;
+                statUI["Money"].GetComponent<Image>().fillAmount = newValue;
             }
             else
             {
