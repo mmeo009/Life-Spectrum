@@ -8,6 +8,8 @@ TagManager:
   - AgeText
   - StoryCard
   - StoryCardImage
+  - Right
+  - Left
   layers:
   - Default
   - TransparentFX

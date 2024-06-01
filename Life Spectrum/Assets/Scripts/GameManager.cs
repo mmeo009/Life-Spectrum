@@ -13,7 +13,6 @@ using Newtonsoft.Json;
 using LIFESPECTRUM;
 
 
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
@@ -35,7 +34,9 @@ public class GameManager : MonoBehaviour
 
     private string key = "평오는귀여워히히";
 
+    private Dictionary<string, TextUIObject> textUIObjcets;
     private Dictionary<string, GameObject> statUI;
+
     private TMP_Text ageText;
     private GameObject storyCard;
     private Material noneMaterial;
@@ -97,6 +98,7 @@ public class GameManager : MonoBehaviour
         {
 
         }
+
         GameSystem.Instance.StartFirstStory();
 
         ChangeStoryUI(GameSystem.Instance.nowStory);
@@ -107,7 +109,7 @@ public class GameManager : MonoBehaviour
     {
         if(stats.age < 6)
         {
-            stats.age += 0.25f;
+            stats.age += 0.5f;
         }
         else
         {
@@ -125,11 +127,11 @@ public class GameManager : MonoBehaviour
         {
             if((int)stats.age < 1)
             {
-                ageText.text = $"{Mathf.Abs(quarter * 100 / 25)} 분기";
+                ageText.text = $"{Mathf.Abs(quarter * 100 / 50)} 분기";
             }
             else
             {
-                ageText.text = $"{(int)stats.age}살 {quarter * 100 / 25} 분기";
+                ageText.text = $"{(int)stats.age}살 {quarter * 100 / 50} 분기";
             }
         }
         else
@@ -162,7 +164,13 @@ public class GameManager : MonoBehaviour
             storyCard = GameObject.FindWithTag("StoryCard");
         }
 
-        if(story.image == null)
+        if(textUIObjcets == null)
+        {
+            textUIObjcets = new Dictionary<string, TextUIObject> ();
+            FindTextUIObjects();
+        }
+
+        if (story.image == null)
         {
             if(noneMaterial == null)
             {
@@ -181,8 +189,42 @@ public class GameManager : MonoBehaviour
 
         if (isDragging == false)
         {
-            storyCard.transform.Find("Text_Title").GetComponent<TextMeshPro>().text = story.titleText;
-            storyCard.transform.Find("Text_Story").GetComponent<TextMeshPro>().text = story.storyText;
+            if (FindTextUIObjects("Text_Title"))
+            {
+                textUIObjcets["Text_Title"].text.text = story.titleText;
+            }
+            else
+            {
+                Debug.LogError("Can`t find Text_Title!");
+            }
+
+            if(FindTextUIObjects("Text_Story"))
+            {
+                textUIObjcets["Text_Story"].text.text = story.storyText;
+            }
+            else
+            {
+                Debug.LogError("Can`t find Text_Story!");
+            }
+
+            if (FindTextUIObjects("Right_Option"))
+            {
+                textUIObjcets["Right_Option"].TextObjectMain.SetActive(false);
+            }
+            else
+            {
+                Debug.LogError("Can`t find Right_Option!");
+            }
+
+            if (FindTextUIObjects("Left_Option"))
+            {
+                textUIObjcets["Left_Option"].TextObjectMain.SetActive(false);
+            }
+            else
+            {
+                Debug.LogError("Can`t find Left_Option!");
+            }
+
         }
         else
         {
@@ -190,17 +232,159 @@ public class GameManager : MonoBehaviour
             {
                 if(targetX <= 0)
                 {
-                    storyCard.transform.Find("Text_Title").GetComponent<TextMeshPro>().text = GameSystem.Instance.nowOptions[1].optionText;
+                    if (FindTextUIObjects("Right_Option"))
+                    {
+                        textUIObjcets["Right_Option"].TextObjectMain.SetActive(true);
+                        textUIObjcets["Right_Option"].textUI.text = GameSystem.Instance.nowOptions[1].optionText;
+                    }
+                    else
+                    {
+                        Debug.LogError("Can`t find Right_Option!");
+                    }
+
+                    if (FindTextUIObjects("Left_Option"))
+                    {
+                        textUIObjcets["Left_Option"].TextObjectMain.SetActive(false);
+                    }
+                    else
+                    {
+                        Debug.LogError("Can`t find Left_Option!");
+                    }
                 }
                 else
                 {
-                    storyCard.transform.Find("Text_Title").GetComponent<TextMeshPro>().text = GameSystem.Instance.nowOptions[0].optionText;
+                    if (FindTextUIObjects("Left_Option"))
+                    {
+                        textUIObjcets["Left_Option"].TextObjectMain.SetActive(true);
+                        textUIObjcets["Left_Option"].textUI.text = GameSystem.Instance.nowOptions[0].optionText;
+                    }
+                    else
+                    {
+                        Debug.LogError("Can`t find Left_Option!");
+                    }
+
+                    if (FindTextUIObjects("Right_Option"))
+                    {
+                        textUIObjcets["Right_Option"].TextObjectMain.SetActive(false);
+                    }
+                    else
+                    {
+                        Debug.LogError("Can`t find Right_Option!");
+                    }
                 }
             }
             else
             {
-                storyCard.transform.Find("Text_Title").GetComponent<TextMeshPro>().text = story.titleText;
+                if (FindTextUIObjects("Right_Option"))
+                {
+                    textUIObjcets["Right_Option"].TextObjectMain.SetActive(false);
+                }
+                else
+                {
+                    Debug.LogError("Can`t find Right_Option!");
+                }
+
+                if (FindTextUIObjects("Left_Option"))
+                {
+                    textUIObjcets["Left_Option"].TextObjectMain.SetActive(false);
+                }
+                else
+                {
+                    Debug.LogError("Can`t find Left_Option!");
+                }
             }
+        }
+    }
+
+    private bool FindTextUIObjects(string key = null)
+    {
+        if(key != null)
+        {
+            if (textUIObjcets.ContainsKey(key))
+            {
+                return true;
+            }
+            else
+            {
+                switch(key)
+                {
+                    case "Text_Title":
+
+                        TextUIObject tempTitle = new TextUIObject();
+                        tempTitle.name = "Text_Title";
+                        tempTitle.text = storyCard.transform.Find("Text_Title").GetComponent<TextMeshPro>();
+                        tempTitle.TextObjectMain = storyCard;
+
+                        textUIObjcets.Add("Text_Title", tempTitle);
+
+                        return true;
+                    case "Text_Story":
+
+                        TextUIObject tempStory = new TextUIObject();
+                        tempStory.name = "Text_Story";
+                        tempStory.text = storyCard.transform.Find("Text_Story").GetComponent<TextMeshPro>();
+                        tempStory.TextObjectMain = storyCard;
+
+                        textUIObjcets.Add("Text_Story", tempStory);
+
+                        return true;
+                    case "Right_Option":
+
+                        TextUIObject tempRight = new TextUIObject();
+                        tempRight.name = "Right_Option";
+                        tempRight.TextObjectMain = GameObject.FindWithTag("Right");
+                        tempRight.textUI = tempRight.TextObjectMain.transform.Find("Text_Right").GetComponent<TMP_Text>();
+
+                        textUIObjcets.Add("Right_Option", tempRight);
+                        return true;
+                    case "Left_Option":
+
+                        TextUIObject tempLeft = new TextUIObject();
+                        tempLeft.name = "";
+                        tempLeft.TextObjectMain = GameObject.FindWithTag("Left");
+                        tempLeft.textUI = tempLeft.TextObjectMain.transform.Find("Text_Left").GetComponent<TMP_Text>();
+
+                        textUIObjcets.Add("Left_Option", tempLeft);
+                        return true;
+                    default: 
+                        return false;
+
+                }
+            }
+
+        }
+        else
+        {
+
+            TextUIObject tempTitle = new TextUIObject();
+            tempTitle.name = "Text_Title";
+            tempTitle.text = storyCard.transform.Find("Text_Title").GetComponent<TextMeshPro>();
+            tempTitle.TextObjectMain = storyCard;
+
+            textUIObjcets.Add("Text_Title", tempTitle);
+
+            TextUIObject tempStory = new TextUIObject();
+            tempStory.name = "Text_Story";
+            tempStory.text = storyCard.transform.Find("Text_Story").GetComponent<TextMeshPro>();
+            tempStory.TextObjectMain = storyCard;
+
+            textUIObjcets.Add("Text_Story", tempStory);
+
+            TextUIObject tempRight = new TextUIObject();
+            tempRight.name = "Right_Option";
+            tempRight.TextObjectMain = GameObject.FindWithTag("Right");
+            tempRight.textUI = tempRight.TextObjectMain.transform.Find("Text_Right").GetComponent<TMP_Text>();
+
+            textUIObjcets.Add("Right_Option", tempRight);
+
+            TextUIObject tempLeft = new TextUIObject();
+            tempLeft.name = "";
+            tempLeft.TextObjectMain = GameObject.FindWithTag("Left");
+            tempLeft.textUI = tempLeft.TextObjectMain.transform.Find("Text_Left").GetComponent<TMP_Text>();
+
+            textUIObjcets.Add("Left_Option", tempLeft);
+
+            return true;
         }
     }
     private IEnumerator IE_ChageStatSlowLy(float endValue, Enums.PlayerStats stat)
@@ -236,6 +420,11 @@ public class GameManager : MonoBehaviour
             yield break;
         }
 
+        foreach(Transform icon in statUIImage.transform)
+        {
+            icon.gameObject.SetActive(false);
+        }
+
         if(statUIImage.fillAmount <= 0 || statUIImage.fillAmount == 1)
         {
             startValue = 0f;
@@ -248,25 +437,26 @@ public class GameManager : MonoBehaviour
             float newValue = Mathf.Lerp(startValue, endValue / maxValue, elapsedTime / 1f);
             Debug.Log("현재 값: " + newValue);
 
-            if (stat == Enums.PlayerStats.Intelligence)
+            int isBuff = 0;
+
+            if(newValue > startValue)
             {
-                statUI["Intelligence"].GetComponent<Image>().fillAmount = newValue;
+                isBuff = 1;
             }
-            else if (stat == Enums.PlayerStats.Personality)
+            else if(newValue < startValue)
             {
-                statUI["Personality"].GetComponent<Image>().fillAmount = newValue;
+                isBuff = -1;
             }
-            else if (stat == Enums.PlayerStats.Strength)
+
+            statUIImage.fillAmount = newValue;
+
+            if (isBuff == 1)
             {
-                statUI["Strength"].GetComponent<Image>().fillAmount = newValue;
+                statUIImage.transform.Find("Buff").gameObject.SetActive(true);
             }
-            else if (stat == Enums.PlayerStats.Money)
+            else if(isBuff == -1)
             {
-                statUI["Money"].GetComponent<Image>().fillAmount = newValue;
-            }
-            else
-            {
-                yield break;
+                statUIImage.transform.Find("Debuff").gameObject.SetActive(true);
             }
 
             elapsedTime += 0.1f;
@@ -274,7 +464,10 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-
+        foreach (Transform icon in statUIImage.transform)
+        {
+            icon.gameObject.SetActive(false);
+        }
     }
 
     // 게임 데이터 저장
@@ -391,4 +584,13 @@ public class GameManager : MonoBehaviour
         return keyBytes; // 조정된 바이트를 반환
     }
 
+}
+
+[System.Serializable]
+public class TextUIObject
+{
+    public string name;
+    public GameObject TextObjectMain;
+    public TextMeshPro text;
+    public TMP_Text textUI;
 }
