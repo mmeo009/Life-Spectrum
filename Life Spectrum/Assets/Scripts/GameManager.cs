@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     private Dictionary<string, TextUIObject> textUIObjcets;
     private Dictionary<string, GameObject> statUI;
+    private Dictionary<string, BuffController> buffUI = new Dictionary<string, BuffController>();
 
     private TMP_Text ageText;
     private GameObject storyCard;
@@ -295,7 +296,30 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
+    public void ReFrashBuffUI()
+    {
+        foreach(Debuff debuff in GameSystem.Instance.myDebuffs)
+        {
+            if (buffUI.ContainsKey(debuff.debuffName))
+            {
+                buffUI[debuff.debuffName].ChangeTime();
+            }
+            else if(buffUI.ContainsKey(debuff.debuffName) == false)
+            {
+                GameObject prefab = Resources.Load<GameObject>("Prefab/Buff_Icon");
+                GameObject temp = Instantiate(prefab,GameObject.FindWithTag("BuffBG").transform);
+                var bc = temp.GetComponent<BuffController>();
+                bc.LoadMyState(debuff);
+                buffUI.Add(debuff.debuffName, bc);
+            }
+        }
+    }
+    public void RemoveDeBuffUI(Debuff debuff)
+    {
+        var go = buffUI[debuff.debuffName].gameObject;
+        buffUI.Remove(debuff.debuffName);
+        Destroy(go);
+    }
     private bool FindTextUIObjects(string key = null)
     {
         if(key != null)

@@ -379,6 +379,7 @@ namespace LIFESPECTRUM
                     myDebuffsPerSec.Add(debuff);
                 }
             }
+            GameManager.Instance.ReFrashBuffUI();
         }
         private void DebuffPerYear()
         {
@@ -402,10 +403,13 @@ namespace LIFESPECTRUM
 
                     if(debuff.amountOfTime <= 0)
                     {
+                        GameManager.Instance.RemoveDeBuffUI(debuff);
                         myDebuffs.Remove(debuff);
                     }
                 }
             }
+
+            GameManager.Instance.ReFrashBuffUI();
         }
         private void DebuffPerSec()
         {
@@ -434,6 +438,7 @@ namespace LIFESPECTRUM
 
                         if (_debuff.amountOfTime <= 0)
                         {
+                            GameManager.Instance.RemoveDeBuffUI(debuff);
                             myDebuffsPerSec.Remove(_debuff);
                             myDebuffs.Remove(_debuff);
                         }
@@ -446,6 +451,7 @@ namespace LIFESPECTRUM
             {
                 timer -= Time.deltaTime;
             }
+            GameManager.Instance.ReFrashBuffUI();
         }
 
         private List<StoryObject> PickStoryObjects(int amount)

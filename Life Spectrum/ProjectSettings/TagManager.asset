@@ -10,6 +10,7 @@ TagManager:
   - StoryCardImage
   - Right
   - Left
+  - BuffBG
   layers:
   - Default
   - TransparentFX
