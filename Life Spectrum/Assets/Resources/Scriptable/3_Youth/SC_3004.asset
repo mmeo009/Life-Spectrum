@@ -31,7 +31,7 @@ MonoBehaviour:
       \uC138\uADE0, \uADF8\uB9AC\uACE0 \uC1E0\uB294 \uC5B4\uB5A4 \uC5ED\uD560\uC744
       \uD588\uC744\uAE4C?\""
     isPositive: 1
-    nextStory: {fileID: 0}
+    nextStory: {fileID: 11400000, guid: 8aa0d2fb79eea3e45a9ff7e3ef210cf6, type: 2}
     age: 0
     stats:
     - StatType: 0

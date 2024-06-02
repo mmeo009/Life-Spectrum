@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: SC_6020
   m_EditorClassIdentifier: 
   titleText: "\uB178\uB798\uBC29"
-  storyText: "\uC624\uB79C\uB9CC\uC5D0 \uCF54\uC778 \uB178\uB798\uBC29\uC744 \uC0E4\uC6B0\uD305\uC744
-    \uD558\uACE0 \uC2F6\uC5B4\uC84C\uB2E4."
+  storyText: "\uC624\uB79C\uB9CC\uC5D0 \uCF54\uC778 \uB178\uB798\uBC29\uC5D0\uC11C
+    \uC0E4\uC6B0\uD305\uC744 \uD558\uACE0 \uC2F6\uC5B4\uC84C\uB2E4."
   image: {fileID: 2100000, guid: 8e2fd4ad3552e1b499fdfb5cf4e00368, type: 2}
   statMins:
   - StatType: 4
     age: 3
-    Amount: 0
+    Amount: 14
   hasPreviousStory: 0
   hasntAnyOptions: 0
   timeDoesntPass: 0

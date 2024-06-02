@@ -17,7 +17,7 @@ MonoBehaviour:
     \uD0C8\uAE4C?\n\uB0AD\uB9CC\uC788\uB294 \uBB34\uAD81\uD654\uD638\uB97C \uD0C8\uAE4C?"
   image: {fileID: 2100000, guid: 60357f63817e94f488a74bc03c1c1e13, type: 2}
   statMins:
-  - StatType: 0
+  - StatType: 4
     age: 4
     Amount: 0
   hasPreviousStory: 0

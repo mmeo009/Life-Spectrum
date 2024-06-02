@@ -29,7 +29,7 @@ MonoBehaviour:
     optionDetailText: "\"\uADF8\uB798 \uCC98\uC74C\uBD80\uD130 \uC2DC\uC791\uD558\uBA74
       \uBB50\uB4E0 \uD798\uB4E4\uC9C0\""
     isPositive: 1
-    nextStory: {fileID: 0}
+    nextStory: {fileID: 11400000, guid: 46f2f85a519a8ed41be285a71b0a1791, type: 2}
     age: 0
     stats:
     - StatType: 1
