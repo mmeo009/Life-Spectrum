@@ -27,7 +27,7 @@ MonoBehaviour:
   - optionText: "2\uACE0!"
     optionDetailText: "\"\uD310\uC774 \uC810\uC810 \uCEE4\uC9C0\uB294\uB370? \uC88B\uC544!\""
     isPositive: 0
-    nextStory: {fileID: 0}
+    nextStory: {fileID: 11400000, guid: aa712581f8724f647a429b3358fbef71, type: 2}
     age: 0
     stats:
     - StatType: 3

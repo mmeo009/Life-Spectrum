@@ -19,7 +19,7 @@ MonoBehaviour:
   image: {fileID: 2100000, guid: 4b18d292e468c8f4ba11cefc2de702ba, type: 2}
   statMins:
   - StatType: 4
-    age: 3
+    age: 4
     Amount: 0
   hasPreviousStory: 0
   hasntAnyOptions: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
     debuffs:
     - debuffName: "\uB9DD\uAC9C\uC758 \uB300\uD55C \uC2E4\uB9DD\uAC10"
       debuffType: 0
-      amountOfTime: 5
+      amountOfTime: -1
       stat:
       - StatType: 2
         isMaxAmount: 0

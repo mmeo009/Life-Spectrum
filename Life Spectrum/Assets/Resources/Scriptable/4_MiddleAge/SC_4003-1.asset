@@ -40,7 +40,7 @@ MonoBehaviour:
   - optionText: "\uB2E4\uC74C"
     optionDetailText: "\uB2E4\uB978 \uCC45\uC744 \uC0B4\uD3B4\uBCF4\uC790."
     isPositive: 1
-    nextStory: {fileID: 0}
+    nextStory: {fileID: 11400000, guid: 8ecd3fcb37da3524cacc60b47f4e804e, type: 2}
     age: 0
     stats: []
     debuffs: []
