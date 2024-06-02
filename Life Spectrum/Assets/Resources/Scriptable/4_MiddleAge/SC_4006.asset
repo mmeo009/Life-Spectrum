@@ -36,8 +36,8 @@ MonoBehaviour:
       Method: 0
     debuffs:
     - debuffName: "\uC774\uC790 \uBC0F \uC6D0\uAE08 \uD68C\uC218"
-      debuffType: 0
-      amountOfTime: 30
+      debuffType: 1
+      amountOfTime: 4
       stat:
       - StatType: 3
         isMaxAmount: 0

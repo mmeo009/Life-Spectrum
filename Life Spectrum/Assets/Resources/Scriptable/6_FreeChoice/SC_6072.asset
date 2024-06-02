@@ -19,7 +19,7 @@ MonoBehaviour:
   image: {fileID: 2100000, guid: a997fb80ca0050542bbe5548074dbd34, type: 2}
   statMins:
   - StatType: 4
-    age: 3
+    age: 0
     Amount: 17
   hasPreviousStory: 0
   hasntAnyOptions: 0

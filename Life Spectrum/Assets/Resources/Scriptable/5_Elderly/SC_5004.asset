@@ -53,7 +53,7 @@ MonoBehaviour:
     debuffs:
     - debuffName: "\uB178\uC7A5\uC740 \uC9C0\uCE58\uC9C0 \uC54A\uB294\uB2E4"
       debuffType: 0
-      amountOfTime: 10
+      amountOfTime: 2
       stat:
       - StatType: 1
         isMaxAmount: 0

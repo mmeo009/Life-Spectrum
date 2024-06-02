@@ -50,8 +50,4 @@ MonoBehaviour:
       isMaxAmount: 0
       amount: 10
       Method: 1
-    - StatType: 3
-      isMaxAmount: 0
-      amount: 10
-      Method: 0
     debuffs: []
