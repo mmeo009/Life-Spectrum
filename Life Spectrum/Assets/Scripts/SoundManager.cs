@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using UnityEditor.SceneManagement;
 using Unity.VisualScripting;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private List<SoundGroup> backGroundMusics = new List<SoundGroup>();
     [SerializeField] private List<SoundGroup> inGameSounds = new List<SoundGroup>();
-    [SerializeField] private AudioSource AudioSource;
+    public AudioMixer AudioMixer;
 
     private void Awake()
     {
@@ -26,8 +27,10 @@ public class SoundManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-
-        AudioSource = this.AddComponent<AudioSource>();
+         if(AudioMixer == null)
+        {
+            AudioMixer = Resources.Load<AudioMixer>("Sound/AudioMixer");
+        }
         LoadSoundData();
     }
     public void LoadSoundData()
@@ -69,11 +72,11 @@ public class SoundManager : MonoBehaviour
             }
         }
 
-        backGroundMusics.Add(new SoundGroup("Infancy", Infancy));
-        backGroundMusics.Add(new SoundGroup("Adolescenece", Adolescenece));
-        backGroundMusics.Add(new SoundGroup("Youth", Youth));
-        backGroundMusics.Add(new SoundGroup("MiddleAge", MiddleAge));
-        backGroundMusics.Add(new SoundGroup("Elderly", Elderly));
+        backGroundMusics.Add(new SoundGroup("Infancy", Infancy, true));
+        backGroundMusics.Add(new SoundGroup("Adolescenece", Adolescenece, true));
+        backGroundMusics.Add(new SoundGroup("Youth", Youth, true));
+        backGroundMusics.Add(new SoundGroup("MiddleAge", MiddleAge, true));
+        backGroundMusics.Add(new SoundGroup("Elderly", Elderly, true));
 
         List<AudioClip> GameOver = new List<AudioClip>();
         List<AudioClip> Paper = new List<AudioClip>();
@@ -98,9 +101,9 @@ public class SoundManager : MonoBehaviour
             }
         }
 
-        inGameSounds.Add(new SoundGroup("GameEnd", GameOver));
-        inGameSounds.Add(new SoundGroup("Paper", Paper));
-        inGameSounds.Add(new SoundGroup("PopUp", PopUp));
+        inGameSounds.Add(new SoundGroup("GameEnd", GameOver, false));
+        inGameSounds.Add(new SoundGroup("Paper", Paper, false));
+        inGameSounds.Add(new SoundGroup("PopUp", PopUp, false));
     }
     public void PlaySound(string name, bool isBGM) 
     {
@@ -118,10 +121,40 @@ public class SoundManager : MonoBehaviour
 public class SoundGroup
 {
     public string name;
-    public List<AudioClip> audioClips;
-    public SoundGroup(string name, List<AudioClip> list)
+    public List<Sound> audioClips = new List<Sound>();
+    public SoundGroup(string name, List<AudioClip> list, bool isBGM)
     {
         this.name = name;
-        this.audioClips = list;
+        foreach(AudioClip clip in list)
+        {
+            Sound sound = new Sound();
+            sound.name = clip.name;
+            sound.audioClip = clip;
+
+            if (isBGM == true) 
+            {
+                sound.mixerGroup = SoundManager.Instance.AudioMixer.FindMatchingGroups("Master")[0];
+            }
+            else
+            {
+                sound.mixerGroup = SoundManager.Instance.AudioMixer.FindMatchingGroups("Master")[1];
+            }
+
+            audioClips.Add(sound);
+        }
     }
+}
+
+[System.Serializable]
+public class Sound
+{
+    public string name;
+    public AudioClip audioClip;
+
+    public float volume = 1.0f;
+    public float pitch = 1.0f;
+    public bool loop;
+
+    public AudioSource source;
+    public AudioMixerGroup mixerGroup;
 }
