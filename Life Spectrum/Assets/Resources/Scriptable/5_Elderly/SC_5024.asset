@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 257ab2af6e69e4b49ae96da574742c27, type: 3}
-  m_Name: SC_5015
+  m_Name: SC_5024
   m_EditorClassIdentifier: 
-  titleText: "\uB178\uC778\uC758 \uC2DD\uC0AC"
-  storyText: "\uC74C \uBB58 \uBA39\uC744\uAE4C..."
-  image: {fileID: 2100000, guid: 582b9c7501e41a142906c0597b401a97, type: 2}
+  titleText: "\uC120\uD55C \uC601\uD5A5\uB825"
+  storyText: "\uD2F0\uBE44\uB97C \uBCF4\uB358 \uC911 \uC544\uC774\uB4E4\uC774 \uAD76\uACE0
+    \uC788\uB294 \uAC83\uC744 \uBCF4\uC558\uB2E4."
+  image: {fileID: 2100000, guid: d79be8f3418397a4495d9755a658cd8c, type: 2}
   statMins:
   - StatType: 4
     age: 6
@@ -24,9 +25,24 @@ MonoBehaviour:
   timeDoesntPass: 0
   nextStory: {fileID: 0}
   options:
-  - optionText: "\uBC25"
-    optionDetailText: "\"\uD55C\uAD6D\uC778\uC740 \uBC25\uC2EC\uC774\uC9C0..\"\n\uADF8\uCE58\uB9CC
-      \uC18C\uD654\uAC00 \uC798 \uC548\uB418\uB124\uC694"
+  - optionText: "\uD578\uB4DC\uD3F0\uC744 \uC7A1\uB294\uB2E4."
+    optionDetailText: "\"\uAC70\uAE30 OOOO\uC8E0? \uC815\uAE30\uD6C4\uC6D0 \uD558\uB824\uB294\uB370\uC694..\""
+    isPositive: 1
+    nextStory: {fileID: 0}
+    age: 0
+    stats:
+    - StatType: 0
+      isMaxAmount: 0
+      amount: 21
+      Method: 0
+    - StatType: 3
+      isMaxAmount: 0
+      amount: 10
+      Method: 1
+    debuffs: []
+  - optionText: "\uB610\uB974\uB975,,"
+    optionDetailText: "\"\uC2AC\uD504\uAD6C\uBA3C..\"\n\uADF8\uC800 \uC2AC\uD504\uAE30\uB9CC
+      \uD558\uB124\uC694."
     isPositive: 0
     nextStory: {fileID: 0}
     age: 0
@@ -34,17 +50,5 @@ MonoBehaviour:
     - StatType: 0
       isMaxAmount: 0
       amount: 10
-      Method: 0
-    debuffs: []
-  - optionText: "\uC8FD"
-    optionDetailText: "\"\uD5C8\uAE30\uAC00 \uAE08\uBC29 \uAEBC\uC9C0\uC9C0\uB9CC
-      \uC18C\uD654\uAC00 \uC694\uC0C8.. \uC798 \uC548\uB418\uB2C8..\""
-    isPositive: 1
-    nextStory: {fileID: 0}
-    age: 0
-    stats:
-    - StatType: 0
-      isMaxAmount: 0
-      amount: 10
-      Method: 0
+      Method: 1
     debuffs: []

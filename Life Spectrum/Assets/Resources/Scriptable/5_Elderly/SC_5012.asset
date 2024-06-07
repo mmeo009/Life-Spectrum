@@ -33,10 +33,10 @@ MonoBehaviour:
     nextStory: {fileID: 0}
     age: 0
     stats:
-    - StatType: 1
+    - StatType: 0
       isMaxAmount: 0
       amount: 10
-      Method: 1
+      Method: 0
     debuffs: []
   - optionText: "\uC0AC\uC774\uB4DC \uBA54\uB274 \uC0DD\uC120\uD280\uAE40"
     optionDetailText: "\"\uB9DB\uC788\uAD6C\uBA3C.. \uADFC\uB370 \uC65C \uC800\uB9AC

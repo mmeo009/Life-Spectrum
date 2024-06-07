@@ -31,7 +31,7 @@ MonoBehaviour:
     nextStory: {fileID: 0}
     age: 0
     stats:
-    - StatType: 2
+    - StatType: 0
       isMaxAmount: 0
       amount: 21
       Method: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
     nextStory: {fileID: 0}
     age: 0
     stats:
-    - StatType: 2
+    - StatType: 0
       isMaxAmount: 0
       amount: 10
       Method: 1
