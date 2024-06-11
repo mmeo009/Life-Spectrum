@@ -746,9 +746,30 @@ namespace LIFESPECTRUM
         {
             
         }
+        private void SaveOptionsForEnding(StoryObject story, Option option)
+        {
+            string filePath = Application.persistentDataPath + "/End.Json";
+            // JSON 직렬화
+            string data;
+            string jsonData = File.ReadAllText(filePath);
 
+            if(jsonData != null)
+            {
+                data = jsonData + "/" + story.name + ":" + option.optionText;
+            }
+            else
+            {
+                data = story.name + ":" + option.optionText;
+            }
+
+            string toJsonData = JsonConvert.SerializeObject(data);
+                // 파일 저장
+            File.WriteAllText(filePath, jsonData);
+        }
         public void ApplyOption(Option option)
         {
+            SaveOptionsForEnding(nowStory, option);
+
             for(int i = 0; i< option.stats.Count; i++)
             {
                 ChangePlayerStat(option.stats[i]);
