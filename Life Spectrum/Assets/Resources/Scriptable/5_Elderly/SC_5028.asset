@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257ab2af6e69e4b49ae96da574742c27, type: 3}
   m_Name: SC_5028
   m_EditorClassIdentifier: 
-  titleText: "\uB178\uB144 \uC5EC\uD589"
-  storyText: "\uB178\uB144\uAE30\uC5D0 \uC88B\uC740 \uCD94\uC5B5\uC744 \uB9CC\uB4E4\uC5B4\uBCF4\uC790."
+  titleText: "\uBCF4\uC774\uC2A4\uD53C\uC2F1"
+  storyText: "\uC190\uC8FC\uAC00 \uB0A9\uCE58 \uB418\uC5C8\uB2E4\uB294 \uD611\uBC15
+    \uC804\uD654\uB97C \uBC1B\uC558\uB530.\n\uB2E4\uB978 \uC0AC\uB78C\uD55C\uD14C
+    \uC5F0\uB77D\uD558\uBA74 \uD070 \uC77C \uB09C\uB2E4\uACE0..?"
   image: {fileID: 0}
   statMins:
   - StatType: 4
@@ -24,9 +26,9 @@ MonoBehaviour:
   timeDoesntPass: 0
   nextStory: {fileID: 0}
   options:
-  - optionText: "\uC5EC\uD589\uC744 \uB5A0\uB09C\uB2E4."
-    optionDetailText: "\"\uB108\uBB34 \uC870\uC6A9\uD558\uB2C8 \uC6B0\uC6B8\uD558\uAD6C\uB9CC..\"\n\uC678\uB85C\uC6C0\uC744
-      \uB290\uB07C\uB294 \uB2F9\uC2E0\uC785\uB2C8\uB2E4."
+  - optionText: "\uACBD\uCC30\uC5D0\uAC8C \uC804\uD654"
+    optionDetailText: "\uACBD\uCC30\uC740 \uC870\uC0AC \uD6C4, \uACE7 \uBC14\uB85C
+      \uBCF4\uC774\uC2A4\uD53C\uC2F1\uC774\uB77C\uACE0 \uD558\uC600\uC2B5\uB2C8\uB2E4."
     isPositive: 0
     nextStory: {fileID: 0}
     age: 0
@@ -36,15 +38,15 @@ MonoBehaviour:
       amount: 10
       Method: 0
     debuffs: []
-  - optionText: "\uCE5C\uAD6C\uB97C \uB9CC\uB09C\uB2E4"
-    optionDetailText: "\uCE5C\uAD6C\uB97C \uC624\uB79C\uB9CC\uC5D0 \uB9CC\uB098\uB2C8\n\uD589\uBCF5\uD55C
-      \uB2F9\uC2E0\uC785\uB2C8\uB2E4."
+  - optionText: "\uBC94\uC778 \uC694\uAD6C \uC218\uC6A9"
+    optionDetailText: "\uC9C0\uD0A4\uACE0 \uC2F6\uC740 \uB9C8\uC74C\uC740 \uC54C\uACA0\uCC0C\uB9CC,
+      \uBCF4\uC774\uC2A4\uD53C\uC2F1 \uC0AC\uAE30 \uBC94\uC8C4\uC790\uC600\uC2B5\uB2C8\uB2E4."
     isPositive: 1
     nextStory: {fileID: 0}
     age: 0
     stats:
-    - StatType: 0
+    - StatType: 3
       isMaxAmount: 0
-      amount: 10
-      Method: 0
+      amount: 20
+      Method: 1
     debuffs: []

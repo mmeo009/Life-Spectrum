@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257ab2af6e69e4b49ae96da574742c27, type: 3}
   m_Name: SC_5030
   m_EditorClassIdentifier: 
-  titleText: "\uB178\uC778\uACFC \uBC14\uB2E4"
-  storyText: "\uBC14\uB2E4\uB97C \uBCF4\uB2C8 \uAC00\uB9CC\uD788 \uC549\uC544\uC788\uACE0
-    \uC2F6\uC740 \uB2F9\uC2E0\uC785\uB2C8\uB2E4."
+  titleText: "\uAC00\uAD6C \uAD50\uCCB4"
+  storyText: "\uC790\uC2DD\uB4E4\uC774 \uAC00\uAD6C, \uAC00\uC804 \uC81C\uD488\uC744
+    \uAD50\uCCB4\uD574\uC900\uB2E4\uACE0 \uD55C\uB2E4.\n\uB098\uB294..."
   image: {fileID: 0}
   statMins:
   - StatType: 4
@@ -25,26 +25,35 @@ MonoBehaviour:
   timeDoesntPass: 0
   nextStory: {fileID: 0}
   options:
-  - optionText: "\uAC00\uB9CC\uD788 \uC788\uB294\uB2E4"
-    optionDetailText: "\uB9C8\uC74C\uC5D0 \uC548\uC815\uC744 \uCC3E\uC558\uC2B5\uB2C8\uB2E4."
+  - optionText: "\uC0C8\uB86D\uAC8C!"
+    optionDetailText: "\uC774\uC058\uACE0 \uBE44\uC2FC \uAC00\uAD6C\uB4E4\uB85C \uAD50\uCCB4\uB418\uC5C8\uC2B5\uB2C8\uB2E4.\n\uD558\uC9C0\uB9CC,
+      \uC0AC\uC6A9\uD558\uAE30 \uC5B4\uB824\uC6CC\uC11C \uBD88\uD3B8\uD569\uB2C8\uB2E4."
     isPositive: 1
     nextStory: {fileID: 0}
     age: 0
     stats:
+    - StatType: 1
+      isMaxAmount: 0
+      amount: 10
+      Method: 1
     - StatType: 0
       isMaxAmount: 0
       amount: 10
       Method: 0
     debuffs: []
-  - optionText: "\uAC00\uB9CC\uD788 \uC788\uC9C0 \uC54A\uB294\uB2E4"
-    optionDetailText: "\uBB38\uB4DD \uB098\uC774\uAC00 \uB4E4\uC5C8\uB2E4\uB294 \uAC83\uC5D0
-      \uC5B5\uC6B8\uD574\uC84C\uC2B5\uB2C8\uB2E4."
+  - optionText: "\uC21C\uC815\uC73C\uB85C!"
+    optionDetailText: "\uD604\uC7AC \uC0AC\uC6A9\uD55C \uAC00\uAD6C\uAC00 \uD3B8\uD558\uC9C0\uB9CC,
+      \uC5BC\uB9C8 \uC548\uAC00\uC11C \uACE0\uC7A5\uC774 \uB098\uB124\uC694..."
     isPositive: 0
     nextStory: {fileID: 0}
     age: 0
     stats:
-    - StatType: 0
+    - StatType: 3
       isMaxAmount: 0
       amount: 10
       Method: 1
+    - StatType: 2
+      isMaxAmount: 0
+      amount: 10
+      Method: 0
     debuffs: []
