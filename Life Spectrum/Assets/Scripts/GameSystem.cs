@@ -751,11 +751,10 @@ namespace LIFESPECTRUM
             string filePath = Application.persistentDataPath + "/End.Json";
             // JSON 직렬화
             string data;
-            string jsonData = File.ReadAllText(filePath);
 
-            if(jsonData != null)
+            if(File.Exists(filePath) == true)
             {
-                data = jsonData + "/" + story.name + ":" + option.optionText;
+                data = File.ReadAllText(filePath) + "/" + story.name + ":" + option.optionText;
             }
             else
             {
@@ -764,7 +763,7 @@ namespace LIFESPECTRUM
 
             string toJsonData = JsonConvert.SerializeObject(data);
                 // 파일 저장
-            File.WriteAllText(filePath, jsonData);
+            File.WriteAllText(filePath, toJsonData);
         }
         public void ApplyOption(Option option)
         {
