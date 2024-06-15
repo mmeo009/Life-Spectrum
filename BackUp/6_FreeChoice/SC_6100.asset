@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257ab2af6e69e4b49ae96da574742c27, type: 3}
+  m_Name: SC_6100
+  m_EditorClassIdentifier: 
+  titleText: "\uB0AE\uC7A0"
+  storyText: "\uB108\uBB34 \uD53C\uACE4\uD558\uB2E4. \uB0AE\uC7A0\uC744 \uC790\uBA74
+    \uC880 \uB35C \uD53C\uACE4\uD560\uAE4C?"
+  image: {fileID: 0}
+  statMins:
+  - StatType: 4
+    age: 4
+    Amount: 0
+  hasPreviousStory: 0
+  hasntAnyOptions: 0
+  timeDoesntPass: 0
+  nextStory: {fileID: 0}
+  options:
+  - optionText: "\uB0AE\uC7A0\uC744 \uC794\uB2E4"
+    optionDetailText: "\uC77C\uC5B4\uB098\uBCF4\uB2C8 \uC0C8\uBCBD 3\uC2DC\uC600\uC2B5\uB2C8\uB2E4."
+    isPositive: 0
+    nextStory: {fileID: 0}
+    age: 0
+    stats:
+    - StatType: 0
+      isMaxAmount: 0
+      amount: 10
+      Method: 0
+    - StatType: 2
+      isMaxAmount: 0
+      amount: 10
+      Method: 1
+    - StatType: 1
+      isMaxAmount: 0
+      amount: 10
+      Method: 0
+    debuffs: []
+  - optionText: "\uC7A0\uC740 \uC0AC\uCE58\uB2E4"
+    optionDetailText: "\uADF8\uB798\uB3C4 \uD53C\uACE4\uD55C \uB2F9\uC2E0\uC774\uC600\uC2B5\uB2C8\uB2E4"
+    isPositive: 1
+    nextStory: {fileID: 0}
+    age: 0
+    stats:
+    - StatType: 0
+      isMaxAmount: 0
+      amount: 10
+      Method: 1
+    - StatType: 2
+      isMaxAmount: 0
+      amount: 10
+      Method: 1
+    debuffs: []

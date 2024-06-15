@@ -28,10 +28,9 @@ MonoBehaviour:
   options:
   - optionText: "\uC77D\uB294\uB2E4."
     optionDetailText: "\"\uC778\uAC04\uC758 \uC5ED\uC0AC\uC5D0\uC11C \uBB34\uAE30\uC640
-      \uC138\uADE0, \uADF8\uB9AC\uACE0 \uC1E0\uB294 \uC5B4\uB5A4 \uC5ED\uD560\uC744
-      \uD588\uC744\uAE4C?\""
+      \uADE0, \uADF8\uB9AC\uACE0 \uC1E0\uB294 \uC5B4\uB5A4 \uC5ED\uD560\uC744 \uD588\uC744\uAE4C?\""
     isPositive: 1
-    nextStory: {fileID: 11400000, guid: 8aa0d2fb79eea3e45a9ff7e3ef210cf6, type: 2}
+    nextStory: {fileID: 0}
     age: 0
     stats:
     - StatType: 0

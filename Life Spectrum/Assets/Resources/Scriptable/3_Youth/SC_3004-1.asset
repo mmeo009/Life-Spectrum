@@ -25,10 +25,10 @@ MonoBehaviour:
   nextStory: {fileID: 0}
   options:
   - optionText: "\uC77D\uB294\uB2E4."
-    optionDetailText: "\"\uCD1D\uACFC \uAC19\uC740 \uBB34\uAE30\uB294 \uC774\uB7F0
-      \uC5ED\uC0AC\uB97C \uAC00\uC84C\uAD6C\uB098.\""
+    optionDetailText: "\"\uCD1D \uAC19\uC740 \uBB34\uAE30\uB294 \uC774\uB7F0 \uC5ED\uC0AC\uB97C
+      \uAC00\uC84C\uAD6C\uB098.\""
     isPositive: 1
-    nextStory: {fileID: 11400000, guid: e7f4b654a1b0c924ab4e705ad0d8ea89, type: 2}
+    nextStory: {fileID: 0}
     age: 0
     stats:
     - StatType: 0

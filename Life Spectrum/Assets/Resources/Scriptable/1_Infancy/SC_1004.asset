@@ -44,7 +44,7 @@ MonoBehaviour:
   - optionText: "~\uB9C8\uB97C \uC678\uCE5C\uB2E4."
     optionDetailText: "\uB0B4\uAC00 \uBB50\uB77C \uD588\uB354\uB77C?"
     isPositive: 1
-    nextStory: {fileID: 11400000, guid: a8da3d62fa5a0eb4082f0aced099232c, type: 2}
+    nextStory: {fileID: 0}
     age: 0
     stats: []
     debuffs: []
