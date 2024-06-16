@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SC_3023
   m_EditorClassIdentifier: 
   titleText: "\uAC8C\uC784 \uC9C1\uC5C5"
-  storyText: "RPG \uAC8C\uC784\uC774 \uD558\uACE0 \uC2F6\uC5B4\uC11C \uC811\uC18D\uD588\uB2E4.
-    \n\uC5B4\uB5A4 \uC9C1\uC5C5\uC73C\uB85C \uC2DC\uC791\uD560\uAE4C..."
+  storyText: "RPG \uAC8C\uC784\uC5D0 \uC811\uC18D\uD588\uB2E4. \n\uC5B4\uB5A4 \uC9C1\uC5C5\uC73C\uB85C
+    \uC2DC\uC791\uD560\uAE4C..."
   image: {fileID: 2100000, guid: 3386ee3f22d992c47957bfaebe09c849, type: 2}
   statMins:
   - StatType: 4

@@ -21,7 +21,7 @@ MonoBehaviour:
   - StatType: 4
     age: 4
     Amount: 0
-  hasPreviousStory: 0
+  hasPreviousStory: 1
   hasntAnyOptions: 0
   timeDoesntPass: 0
   nextStory: {fileID: 0}

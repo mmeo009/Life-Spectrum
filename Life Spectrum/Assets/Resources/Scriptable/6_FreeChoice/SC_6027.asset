@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SC_6027
   m_EditorClassIdentifier: 
   titleText: "\uB3C8 \uAC1A\uAE30"
-  storyText: "\uCE5C\uAD6C\uC5D0\uAC8C \uB3C8\uC744 \uBE4C\uB838\uB2E4. \uB2F9\uC7A5
+  storyText: "\uCE5C\uAD6C\uC5D0\uAC8C \uB3C8\uC744 \uBE4C\uB838\uB2E4. \uC9C0\uAE08
     \uAC1A\uC744 \uC218 \uC788\uC9C0\uB9CC\n\uB098\uC911\uC5D0\uB3C4 \uAC1A\uC744
     \uC218 \uC788\uC744 \uAC83 \uAC19\uB2E4."
   image: {fileID: 2100000, guid: d644ca7e985a9ce48baef434fc51b802, type: 2}

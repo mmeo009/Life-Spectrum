@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SC_6132
   m_EditorClassIdentifier: 
   titleText: "\uD6C4\uB4DC\uD2F0"
-  storyText: "\uC624\uB298 \uCE5C\uAD6C\uC640 \uBC25\uC744 \uBA39\uB294\uB370 \uADF8\uB0E5
-    \uD6C4\uB4DC\uD2F0\uB098 \uC785\uC744\uAE4C?"
+  storyText: "\uCE5C\uAD6C\uC640 \uBC25\uC744 \uBA39\uB294\uB370 \uADF8\uB0E5 \uD6C4\uB4DC\uD2F0\uB098
+    \uC785\uC744\uAE4C?"
   image: {fileID: 0}
   statMins:
   - StatType: 4

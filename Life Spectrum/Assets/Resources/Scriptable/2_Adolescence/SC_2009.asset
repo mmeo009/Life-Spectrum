@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleText: "\uC555\uC218"
   storyText: "\uCE5C\uAD6C\uC640 \uCE74\uB4DC\uB97C \uAC00\uC9C0\uACE0 \uB180\uB358
-    \uC911, \uC120\uC0DD\uB2D8\uC774\n\uB108\uBB34 \uC2DC\uB044\uB7FD\uB2E4\uB294
-    \uC774\uC720\uB85C \uBE8F\uC5B4\uAC14\uB2E4."
+    \uC911, \n\uC120\uC0DD\uB2D8\uC774 \uBE8F\uC5B4\uAC14\uB2E4."
   image: {fileID: 2100000, guid: e07eb0587f8662f42ba18894f5c090d6, type: 2}
   statMins:
   - StatType: 4
