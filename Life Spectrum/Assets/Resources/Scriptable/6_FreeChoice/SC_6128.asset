@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257ab2af6e69e4b49ae96da574742c27, type: 3}
   m_Name: SC_6128
   m_EditorClassIdentifier: 
-  titleText: "\uBBF8\uBC25\uBD09?"
+  titleText: "\uB9C8\uBC95\uBD09?"
   storyText: "\uCC3D\uACE0\uC5D0 \uC774\uC058\uAC8C \uC0DD\uAE34 \uB9C8\uBC95\uBD09\uC774
     \uC788\uB124?"
   image: {fileID: 0}
